@@ -1,0 +1,5749 @@
+<body>
+	<header>
+		<a href="#" class="logo"></a>
+
+		<nav class="navbar">
+			<ul>
+				<li><a href="https://tprandomizer.com">Home</a></li>
+				<li>
+					<a href="https://generator.tprandomizer.com"
+						>Generator <i class="fa fa-caret-down"></i
+					></a>
+					<ul>
+						<li>
+							<a href="https://generator.tprandomizer.com"
+								>Stable <sup>1.2.0</sup></a
+							>
+						</li>
+						<li>
+							<a href="https://dev.tprandomizer.com"
+								>Development <sup>1.3.0</sup></a
+							>
+						</li>
+					</ul>
+				</li>
+				<li><a href="https://wiki.tprandomizer.com">Wiki</a></li>
+				<li><a href="https://tprandomizer.com/downloads">Downloads</a></li>
+				<li><a href="https://discord.tprandomizer.com">Discord</a></li>
+				<li>
+					<a href="#">Resources <i class="fa fa-caret-down"></i></a>
+					<ul>
+						<li><a href="https://github.com/zsrtp">ZSRTP Github</a></li>
+						<li>
+							<a href="https://github.com/zeldaret/tp">Decomp Github</a>
+						</li>
+						<li>
+							<a href="https://www.zeldaspeedruns.com/tp">ZSR TP Pages</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<input id="envImageVersion" type="hidden" value="1.2.0" />
+	<input id="envGitCommit" type="hidden" value="d909fdac3357" />
+	<input
+		id="userJwtInput"
+		type="hidden"
+		value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxQjl3RDJtNGJZa2RtUHFaVkRlbUhiIiwiaWF0IjoxNzM2ODc3OTA2fQ.lLPLHVyfd14ekqViTz1hG26zUuv6kjlSm0LmH1KL8eI"
+	/>
+	<script>
+		function tabControl(evt, cityName) {
+			// Declare all variables
+			var i, tabcontent, tablinks;
+
+			// Get all elements with class="tabcontent" and hide them
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+
+			// Get all elements with class="tablinks" and remove the class "active"
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+
+			// Show the current tab, and add an "active" class to the button that opened the tab
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+	</script>
+	<img src="/img/logo.jpg" class="randomizer-logo" />
+	<div class="mainContentWrapper">
+		<div class="blackbg">
+			<div style="display: flex; align-items: center">
+				<div style="font-size: 24px; padding-bottom: 20px">Seed Generation</div>
+				<!-- <button class="primaryButton" style="margin-left: auto">
+          Share
+        </button> -->
+			</div>
+
+			<div class="tab">
+				<!-- <button id="randomizationSettingsTabBtn" class="tablinks active">Randomization Settings</button> -->
+				<button id="randomizationSettingsTabBtn" class="tablinks">
+					Main Rules
+				</button>
+				<button id="excludedChecksTabBtn" class="tablinks">
+					Excluded Checks
+				</button>
+				<button id="startingInventoryTabBtn" class="tablinks">
+					Starting Inventory
+				</button>
+				<button id="plandoTabBtn" class="tablinks active">Plando</button>
+				<button id="gameplaySettingsTabBtn" class="tablinks">Other</button>
+				<!-- <button id="cosmeticsAndQuirksTabBtn" class="tablinks">Cosmetics and Quirks</button> -->
+				<!-- <button id="legacyTabBtn" class="tablinks">Legacy</button> -->
+			</div>
+
+			<!-- Tab content -->
+			<div id="randomizationSettingsTab" class="tabcontent">
+				<!-- <div class="leftColumn"> -->
+
+				<div style="width: 100%">
+					<fieldset id="logicSettingsFieldset">
+						<legend>Logic Settings</legend>
+						<label for="logicRulesFieldset">Logic Rules:</label>
+						<select
+							name="Logic Rules Fieldset"
+							id="logicRulesFieldset"
+							data-tooltip-text="'Glitchless': No glitches are considered in logic.
+
+'Glitched': Repeatable glitches are in logic. Some frame perfect or very precise glitches are not considered in logic.
+
+'No Logic': All items are placed randomly with no consideration for logic. SEEDS MAY BE UNBEATABLE.
+"
+						>
+							<option value="0">Glitchless</option>
+							<option value="1">Glitched</option>
+							<option value="2">No Logic</option>
+						</select>
+					</fieldset>
+				</div>
+
+				<div class="tabColumn">
+					<fieldset id="accessOptionsFieldset">
+						<legend>Access Options</legend>
+						<div class="selectGroup">
+							<label for="castleRequirementsFieldset"
+								>Hyrule Castle Requirements</label
+							><br />
+							<select
+								name="Castle Requirements"
+								data-tooltip-text="'Open': The barrier around Hyrule Castle is dispelled from the beginning.
+
+'Fused Shadows': The player must collect all 3 Fused Shadows.
+
+'Mirror Shards': The player must collect all 4 Mirror Shards.
+
+'All Dungeons': The player must complete all dungeons.
+
+'Vanilla (beat PoT)': The player must complete Palace of Twilight.
+
+Note that all Castle requirements include completing Midna's Desperate Hour. Visit the 'Other' tab to adjust your MDH settings."
+								id="castleRequirementsFieldset"
+							>
+								<option value="0">Open</option>
+								<option value="1">Fused Shadows</option>
+								<option value="2">Mirror Shards</option>
+								<option value="3">All Dungeons</option>
+								<option value="4" selected="">Vanilla (beat PoT)</option>
+							</select>
+						</div>
+						<div class="selectGroup">
+							<label for="palaceRequirementsFieldset"
+								>Palace of Twilight Requirements</label
+							><br />
+							<select
+								name="Palace Requirements"
+								data-tooltip-text="'Open': The mirror is assembled from the beginning and the entrance to the dungeon is open.
+
+'Fused Shadows': The player must collect all 3 Fused Shadows.
+
+'Mirror Shards': The player must collect all 4 Mirror Shards.
+
+'Vanilla (beat CitS)': The player must complete City in the Sky.
+"
+								id="palaceRequirementsFieldset"
+							>
+								<option value="0">Open</option>
+								<option value="1">Fused Shadows</option>
+								<option value="2">Mirror Shards</option>
+								<option value="3" selected="">Vanilla (beat CitS)</option>
+							</select>
+						</div>
+						<div class="selectGroup">
+							<label for="faronLogicFieldset">Faron Woods Logic:</label><br />
+							<select
+								name="Faron Woods  Logic"
+								data-tooltip-text="'Open': Midna will not prevent the player from leaving Faron Woods.
+
+'Closed': Midna will block the player from leaving Faron Woods until Forest Temple is completed.
+"
+								id="faronLogicFieldset"
+							>
+								<option value="0">Open</option>
+								<option value="1" selected="">Closed</option>
+							</select>
+						</div>
+					</fieldset>
+				</div>
+				<div class="tabColumn">
+					<fieldset id="itemPoolOptionsFieldset">
+						<legend>Item Pool</legend>
+						<div
+							data-tooltip-text="If checked, the golden bug locations across Hyrule are randomized.
+"
+							style="width: 50%"
+						>
+							<input
+								type="checkbox"
+								id="goldenBugsCheckbox"
+								name="Golden Bugs"
+								value=""
+							/>
+							<label for="goldenBugsCheckbox"> Golden Bugs </label><br />
+						</div>
+						<div
+							data-tooltip-text="If checked, the Sky Characters received from the Owl Statues are randomized.
+"
+							style="width: 50%"
+						>
+							<input
+								type="checkbox"
+								id="skyCharacterCheckbox"
+								name="Sky Characters"
+								value=""
+							/>
+							<label for="skyCharacterCheckbox"> Sky Characters </label><br />
+						</div>
+						<div
+							style="width: 50%"
+							data-tooltip-text="If checked, items recieved from NPCs will be randomized.
+"
+						>
+							<input
+								type="checkbox"
+								id="giftsFromNPCsCheckbox"
+								name="Gifts From NPCs"
+								value=""
+							/>
+							<label for="giftsFromNPCsCheckbox"> Gifts From NPCs </label><br />
+						</div>
+						<div
+							style="width: 50%"
+							data-tooltip-text="If checked, the items you can permanently buy from shops are randomized.
+"
+						>
+							<input
+								type="checkbox"
+								id="shopItemsCheckbox"
+								name="Shop Items"
+								value=""
+							/>
+							<label for="shopItemsCheckbox"> Shop Items </label><br />
+						</div>
+						<div
+							style="width: 50%"
+							data-tooltip-text="If checked, the Hidden Skills recieved from Golden Wolves are randomized.
+"
+						>
+							<input
+								type="checkbox"
+								id="hiddenSkillsCheckbox"
+								name="Hidden Skills"
+								value=""
+							/>
+							<label for="hiddenSkillsCheckbox"> Hidden Skills </label><br />
+						</div>
+						<div class="selectGroup">
+							<label for="poeSettingsFieldset">Poe Souls:</label><br />
+							<select
+								name="Poe Soul Settings"
+								data-tooltip-text="'Vanilla': Poe Souls will not be randomized.
+
+'Overworld': Only Poes in the Overworld will have their souls shuffled.
+
+'Dungeon': Only Poes in Dungeons will have their souls shuffled.
+
+'All': All Poes will have their souls shuffled.
+"
+								id="poeSettingsFieldset"
+							>
+								<option value="0" selected="">Vanilla</option>
+								<option value="1">Overworld</option>
+								<option value="2">Dungeons</option>
+								<option value="3">All</option>
+							</select>
+						</div>
+						<div class="selectGroup" style="margin-top: 8px">
+							<label for="itemScarcityFieldset">Item Scarcity</label><br />
+							<select
+								name=""
+								id="itemScarcityFieldset"
+								data-tooltip-text="'Vanilla': No changes to the item pool.
+
+'Minimal': Removes unrequired items such as Heart Containers and Pieces, Hawkeye, etc. Has as few items as possible for Bomb Bags, Bows, Hidden Skills, and Wallets. No Magic Armor and 1 Hidden Skill if Glitchless logic.
+
+'Plentiful': One extra copy of major items. There are 17 Heart Containers but no Pieces of Heart. Extra keys if `Keysanity` or `Any Dungeon`."
+							>
+								<option value="0">Vanilla</option>
+								<option value="1">Minimal</option>
+								<option value="2">Plentiful</option>
+							</select>
+						</div>
+					</fieldset>
+				</div>
+				<div class="tabColumn">
+					<fieldset id="dungeonItemOptionsFieldset">
+						<legend>Dungeon Items</legend>
+						<div class="selectGroup">
+							<label for="smallKeyFieldset">Small Keys</label><br />
+							<select
+								name="Small Keys"
+								data-tooltip-text="'Vanilla': Small Keys will be placed in their original location.
+
+'Own Dungeon': Small Keys will only be randomized in their vanilla dungeon. Example: You can only find a Forest Temple Small Key in the Forest Temple.
+
+'Any Dungeon': Small Keys will be randomized between dungeons.
+
+'Keysanity': Small Keys will be randomized among all checks.
+
+'Keysy': All small key locks are removed and the keys are removed from the item pool and the player will start with the Bulblin Camp Key.
+"
+								data-tooltip-position="left"
+								id="smallKeyFieldset"
+							>
+								<option value="0">Vanilla</option>
+								<option value="1">Own Dungeon</option>
+								<option value="2">Any Dungeon</option>
+								<option value="3">Keysanity</option>
+								<option value="4">Keysy</option>
+							</select>
+						</div>
+						<div class="selectGroup">
+							<label for="bigKeyFieldset">Big Keys</label><br />
+							<select
+								name="Big Keys"
+								data-tooltip-text="'Vanilla': Big Keys will be placed in their original location.
+
+'Own Dungeon': Big Keys will only be randomized in their vanilla dungeon. Example: You can only find a Forest Temple Big Key in the Forest Temple.
+
+'Any Dungeon': Big Keys will be randomized between dungeons.
+
+'Keysanity': Big Keys will be randomized among all checks.
+
+'Keysy': All Big Key locks are removed and the keys are removed from the item pool.
+"
+								data-tooltip-position="left"
+								id="bigKeyFieldset"
+							>
+								<option value="0">Vanilla</option>
+								<option value="1">Own Dungeon</option>
+								<option value="2">Any Dungeon</option>
+								<option value="3">Keysanity</option>
+								<option value="4">Keysy</option>
+							</select>
+						</div>
+						<div class="selectGroup">
+							<label for="mapAndCompassFieldset">Maps and Compasses</label
+							><br />
+							<select
+								name="Maps and Compasses"
+								data-tooltip-text="'Vanilla': Maps and Compasses will be placed in their original location.
+
+'Own Dungeon': Maps and Compasses will only be randomized in their vanilla dungeon. Example: You can only find the Forest Temple Map in the Forest Temple.
+
+'Any Dungeon': Maps and Compasses will be randomized between dungeons.
+
+'Anywhere': Maps and Compasses will be randomized among all checks.
+
+'Start With': The player starts with all Maps and Compasses.
+"
+								data-tooltip-position="left"
+								id="mapAndCompassFieldset"
+							>
+								<option value="0">Vanilla</option>
+								<option value="1">Own Dungeon</option>
+								<option value="2">Any Dungeon</option>
+								<option value="3">Anywhere</option>
+								<option value="4">Start With</option>
+							</select>
+						</div>
+						<div
+							data-tooltip-text="If checked, the Fused Shadows and Mirror Shards that normally appear at the end of Dungeons can be found anywhere in the game.
+"
+							data-tooltip-position="left"
+						>
+							<input
+								type="checkbox"
+								id="shuffleRewardsCheckbox"
+								name="Shuffle Rewards"
+								value=""
+							/>
+							<label for="shuffleRewardsCheckbox">
+								Dungeon Rewards Can Be Anywhere </label
+							><br />
+						</div>
+						<div
+							data-tooltip-text="Helps prevent needing to reenter a dungeon after defeating the boss when small keys are Own Dungeon.
+
+If checked, the following items will not appear on Heart Container or Dungeon Reward checks: Dungeon small keys, Snowpeak Ruins Ordon Pumpkin, Snowpeak Ruins Ordon Goat Cheese, Gerudo Desert Bulblin Camp Key, and North Faron Woods Gate Key
+"
+							data-tooltip-position="left"
+						>
+							<input
+								type="checkbox"
+								id="noSmallKeysOnBossesCheckbox"
+								name="No Small Keys On Bosses Checkbox"
+								value=""
+							/>
+							<label for="noSmallKeysOnBossesCheckbox"
+								>No Small Keys On Bosses</label
+							>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div id="gameplaySettingsTab" class="tabcontent">
+				<div class="tabColumn">
+					<fieldset id="clearedTwilightsFieldset">
+						<legend>Timesavers</legend>
+						<div
+							style="width: 60%"
+							data-tooltip-text="Skips the first three days of Ordon and places Link outside his house before the Sewers segment.
+"
+						>
+							<input
+								type="checkbox"
+								id="introCheckbox"
+								name="Intro Logic"
+								value=""
+							/>
+							<label for="introCheckbox"> Skip Prologue </label><br />
+						</div>
+						<div
+							style="width: 60%"
+							data-tooltip-text="Skips the Faron Twilight tear collection segment.
+"
+						>
+							<input
+								type="checkbox"
+								id="faronTwilightCheckbox"
+								name="Faron Twilight Checkbox"
+								value=""
+							/>
+							<label for="faronTwilightCheckbox"> Faron Twilight Cleared </label
+							><br />
+						</div>
+						<div
+							style="width: 60%"
+							data-tooltip-text="Skips the Eldin Twilight tear collection segment.
+"
+						>
+							<input
+								type="checkbox"
+								id="eldinTwilightCheckbox"
+								name="Eldin Twilight Checkbox"
+								value=""
+							/>
+							<label for="eldinTwilightCheckbox"> Eldin Twilight Cleared </label
+							><br />
+						</div>
+						<div
+							style="width: 80%"
+							data-tooltip-text="Skips the Lanayru Twilight tear collection segment.
+"
+						>
+							<input
+								type="checkbox"
+								id="lanayruTwilightCheckbox"
+								name="Lanayru Twilight Checkbox"
+								value=""
+							/>
+							<label for="lanayruTwilightCheckbox">
+								Lanayru Twilight Cleared </label
+							><br />
+						</div>
+						<div
+							style="width: 70%"
+							data-tooltip-text="Skips the Midna's Desperate Hour segment after Lakebed Temple.
+"
+						>
+							<input
+								type="checkbox"
+								id="mdhCheckbox"
+								name="MDH Logic"
+								value=""
+							/>
+							<label for="mdhCheckbox"> Skip Midna's Desperate Hour </label
+							><br />
+						</div>
+						<div
+							style="width: 60%"
+							data-tooltip-text="Sets the flags for most minor cutscenes. (Dungeon Entrance cutscenes, Midna text prompts, etc.)
+"
+						>
+							<input
+								type="checkbox"
+								id="skipMinorCutscenesCheckbox"
+								name="Skip Minor Cutscenes Checkbox"
+								value=""
+							/>
+							<label for="skipMinorCutscenesCheckbox">
+								Skip Minor Cutscenes </label
+							><br />
+						</div>
+						<div
+							style="width: 60%"
+							data-tooltip-text="Automatically skips all skippable major cutscenes in the game.
+"
+						>
+							<input
+								type="checkbox"
+								id="skipMajorCutscenesCheckbox"
+								name="Skip Major Cutscenes Checkbox"
+								value=""
+							/>
+							<label for="skipMajorCutscenesCheckbox">
+								Skip Major Cutscenes </label
+							><br />
+						</div>
+						<div
+							style="width: 60%"
+							data-tooltip-text="Removes the speed reduction caused by wearing the Iron Boots.
+This also affects any other modifiers that reduce Link's speed such as quicksand, snow, and carrying the Ball and Chain.
+"
+						>
+							<input
+								type="checkbox"
+								id="fastIBCheckbox"
+								name="Fast IB Checkbox"
+								value=""
+							/>
+							<label for="fastIBCheckbox"> Fast Iron Boots </label><br />
+						</div>
+						<div
+							style="width: 60%"
+							data-tooltip-text="Allows the player to instantly transform when pressing a specified button combination.
+
+Gamecube: R + Y
+"
+						>
+							<input
+								type="checkbox"
+								id="quickTransformCheckbox"
+								name="Quick Transform Checkbox"
+								value=""
+							/>
+							<label for="quickTransformCheckbox"> Quick Transform </label
+							><br />
+						</div>
+						<div
+							style="width: 90%"
+							data-tooltip-text="If enabled, any dungeon that is not required to open Hyrule Castle will not contain any important items.
+"
+						>
+							<input
+								type="checkbox"
+								id="barrenCheckbox"
+								name="Unrequired Dungeons"
+								value=""
+							/>
+							<label for="barrenCheckbox">
+								Unrequired Dungeons Are Barren </label
+							><br />
+						</div>
+						<div
+							style="width: 90%"
+							data-tooltip-text="If enabled, text box text will appear immediately for all messages.
+"
+						>
+							<input
+								type="checkbox"
+								id="instantTextCheckbox"
+								name="Instant Text"
+								value=""
+							/>
+							<label for="instantTextCheckbox"> Instant Message Text </label
+							><br />
+						</div>
+						<div
+							style="width: 90%"
+							data-tooltip-text="If enabled, map regions affected by certain settings/sequence skips are unlocked and can be warped to once the Shadow Crystal has been obtained. (Example: The Lanayru Region of the map is unlocked if Lanayru Twilight is skipped.)
+"
+						>
+							<input
+								type="checkbox"
+								id="openMapCheckbox"
+								name="Open Map"
+								value=""
+							/>
+							<label for="openMapCheckbox"> Unlock Map Regions </label><br />
+						</div>
+						<div
+							style="width: 90%"
+							data-tooltip-text="If enabled, the player can manually increase the speed of the spinner by holding a specified button while riding it. Note that any checks that can be obtained using this setting are not considered in logic.
+
+Gamecube: R
+"
+						>
+							<input
+								type="checkbox"
+								id="spinnerSpeedCheckbox"
+								name="Spinner Speed"
+								value=""
+							/>
+							<label for="spinnerSpeedCheckbox"> Increase Spinner Speed </label
+							><br />
+						</div>
+						<div
+							style="width: 90%"
+							data-tooltip-text="WARNING: you will need to save and quit the game to exit the Darknut room since the statue is gone.
+
+If enabled, the Door of Time (the big door at the entrance) in the Temple of Time will be opened and the statue is moved to the entrance."
+						>
+							<input
+								type="checkbox"
+								id="openDotCheckbox"
+								name="Open Door of Time"
+								value=""
+							/>
+							<label for="openDotCheckbox"> Open Door of Time </label><br />
+						</div>
+					</fieldset>
+				</div>
+				<div class="tabColumn">
+					<fieldset id="additionalSettingsFieldset">
+						<legend>Additional Settings</legend>
+						<div
+							style="width: 60%"
+							data-tooltip-text="If enabled, the player can transform anywhere, even in front of people.
+"
+						>
+							<input
+								type="checkbox"
+								id="transformAnywhereCheckbox"
+								name="Transform Anywhere Checkbox"
+								value=""
+							/>
+							<label for="transformAnywhereCheckbox"> Transform Anywhere </label
+							><br />
+						</div>
+						<div
+							style="width: 70%"
+							data-tooltip-text="Increases the player's wallet capacity from 300, 600, 1000 to 1000, 5000, 9999 respectively.
+"
+						>
+							<input
+								type="checkbox"
+								id="increaseWalletCheckbox"
+								name="Increase Wallet Checkbox"
+								value=""
+							/>
+							<label for="increaseWalletCheckbox">
+								Increase Wallet Capacity</label
+							><br />
+						</div>
+						<div
+							data-tooltip-text="If checked, shop item models will show the model of the replacement item and the text will be replaced. If unchecked, the shop model and text will always be vanilla.
+"
+						>
+							<input
+								type="checkbox"
+								id="modifyShopModelsCheckbox"
+								name="Modify Shop Models Checkbox"
+								value=""
+							/>
+							<label for="modifyShopModelsCheckbox"
+								>Shops Display The Replaced Item</label
+							><br />
+						</div>
+						<div
+							data-tooltip-text="If checked, rolling into walls as Link will do damage. Additionally, dashing into or attacking a wall as Wolf will also do damage. Note, this damage does stack with the damage multiplier.
+"
+						>
+							<input
+								type="checkbox"
+								id="bonksDoDamageCheckbox"
+								name="Bonks Do Damage Checkbox"
+								value=""
+							/>
+							<label for="bonksDoDamageCheckbox">Bonks Do Damage</label><br />
+						</div>
+						<div class="selectGroup" style="margin-top: 8px">
+							<label for="trapItemFieldset">Trap Item Frequency</label><br />
+							<select
+								name="Trap Items"
+								id="trapItemFieldset"
+								data-tooltip-text="'None': No trap items are placed in the seed.
+
+'Few': A small chance for a trap item to be placed when placing a junk item. (~12.5%)
+
+'Many': An increased chance for a trap item to be placed when placing a junk item. (~39.1%).
+
+'Mayhem': A high chance of a trap item to be placed when placing a junk item. (~62.7%)
+
+'Nightmare': All junk items are replaced with trap items. (100%)
+"
+							>
+								<option value="0">None</option>
+								<option value="1">Few</option>
+								<option value="2">Many</option>
+								<option value="3">Mayhem</option>
+								<option value="4">Nightmare</option>
+							</select>
+						</div>
+						<div class="selectGroup" style="margin-top: 8px">
+							<label for="damageMagFieldset">Damage Multiplier</label><br />
+							<select
+								name="Damage Multiplier"
+								id="damageMagFieldset"
+								data-tooltip-text="'Vanilla': Link takes normal damage.
+
+'Double': Link will take 2x damage.
+
+'Triple': Link will take 3x damage.
+
+'Quadruple': Link will take 4x damage.
+
+'OHKO (One-Hit KO)': Any damage taken will kill Link.
+"
+							>
+								<option value="1">Vanilla</option>
+								<option value="2">Double</option>
+								<option value="3">Triple</option>
+								<option value="4">Quadruple</option>
+								<option value="5">OHKO</option>
+							</select>
+						</div>
+						<div class="selectGroup" style="margin-top: 8px">
+							<label for="todFieldset">Starting Time of Day</label><br />
+							<select
+								name="Starting Time of Day"
+								id="todFieldset"
+								data-tooltip-text="If the prologue is skipped, sets the starting time of day of a new save file to the specified value."
+							>
+								<option value="0">Morning</option>
+								<option value="1" selected="selected">Noon</option>
+								<option value="2">Evening</option>
+								<option value="3">Night</option>
+							</select>
+						</div>
+						<div class="selectGroup" style="margin-top: 8px">
+							<label for="hintDistributionFieldset">Hint Distribution</label
+							><br />
+							<select
+								name="Hint Distribution"
+								id="hintDistributionFieldset"
+								data-tooltip-text="'None': Disables hints.
+
+'Balanced': Default hint distribution.
+
+'Season 1': Distribution for the S1 tournament. 3 Barren, 1 Misc, 3 Path (1 Item, 2 Boss), 5 Always, 5 Sometimes, Sword hints in dungeons.
+
+'Strong': Hints are more useful than Balanced on average.
+
+'Very Strong': Hints are more useful than Strong on average.
+
+'Weak': Designed to enhance the experience without speeding things up that much.
+"
+							>
+								<option value="0">None</option>
+								<option value="3" selected="selected">Balanced</option>
+								<option value="1">Season 1</option>
+								<option value="4">Strong</option>
+								<option value="5">Very Strong</option>
+								<option value="2">Weak</option>
+							</select>
+						</div>
+					</fieldset>
+				</div>
+				<div class="tabColumn">
+					<fieldset id="dungeonRequirementsFieldset">
+						<legend>Dungeon Entrance Settings</legend>
+
+						<div
+							data-tooltip-text="If checked, the rock in front of the entrance to Lakebed Temple is destroyed.
+"
+							data-tooltip-position="left"
+						>
+							<input
+								type="checkbox"
+								id="lakebedEntranceCheckbox"
+								name="Lakebed Temple Checkbox"
+								value=""
+							/>
+							<label for="lakebedEntranceCheckbox">
+								Lakebed Does Not Require Water Bombs </label
+							><br />
+						</div>
+						<div
+							data-tooltip-text="If checked, the Bulblin Camp is cleared and the player does not need to defeat King Bulblin. This also removes the Bulblin Camp Key from the item pool.
+"
+							data-tooltip-position="left"
+						>
+							<input
+								type="checkbox"
+								id="arbitersEntranceCheckbox"
+								name="Arbiters Grounds Checkbox"
+								value=""
+							/>
+							<label for="arbitersEntranceCheckbox">
+								Arbiters Does Not Require Bulblin Camp </label
+							><br />
+						</div>
+						<div
+							data-tooltip-text="If checked, the blizzard in Snowpeak will not void out Link if the correct path is taken. Shadow Crystal is still in logic in to see the scent path and the portal to the mountain is open.
+"
+							data-tooltip-position="left"
+						>
+							<input
+								type="checkbox"
+								id="snowpeakEntranceCheckbox"
+								name="Snowpeak Ruins Checkbox"
+								value=""
+							/>
+							<label for="snowpeakEntranceCheckbox">
+								Snowpeak Does Not Require Reekfish Scent </label
+							><br />
+						</div>
+						<div
+							data-tooltip-text="If checked, the Sky Cannon is automatically warped to Lake Hylia once Lanayru Twilight is complete and the Sky Characters are removed from the item pool.
+"
+							data-tooltip-position="left"
+						>
+							<input
+								type="checkbox"
+								id="cityEntranceCheckbox"
+								name="City in The Sky Checkbox"
+								value=""
+							/>
+							<label for="cityEntranceCheckbox">
+								City Does Not Require Filled Skybook </label
+							><br />
+						</div>
+						<div
+							class="selectGroup"
+							style="margin-top: 8px"
+							data-tooltip-text="'Closed': The player must wrestle Gor Coron to enter Goron Mines.
+
+'No Wrestling': The player will not have to wrestle Gor Coron to enter Goron Mines.
+
+'Open': All changes of 'No Wrestling' are applied. Additionally, the player will be able to immediately use the elevator to reach the top of Death Mountain."
+							data-tooltip-position="left"
+						>
+							<label for="">Goron Mines Entrance</label><br />
+							<select
+								name="Goron Mines Entrance"
+								id="goronMinesEntranceFieldset"
+							>
+								<option value="0">Closed</option>
+								<option value="1">No Wrestling</option>
+								<option value="2">Open</option>
+							</select>
+						</div>
+						<div
+							class="selectGroup"
+							style="margin-top: 8px"
+							data-tooltip-text="'Closed': The player must defeat Skull Kid. Warping to the Sacred Grove, accessing the past area, and entering the Temple of Time dungeon are all locked behind the Master Sword.
+
+'Open Grove': The player will not need to defeat Skull Kid, the portal to the Sacred Grove is opened, and the past area is accessible. The Master Sword is still required to enter the dungeon.
+
+'Open': All changes of 'Open Grove' are applied. Additionally, the player will not need the Master Sword to access the Temple of Time dungeon."
+							data-tooltip-position="left"
+						>
+							<label for="totEntranceFieldset">Temple of Time Entrance</label
+							><br />
+							<select name="Temple of Time Entrance" id="totEntranceFieldset">
+								<option value="0">Closed</option>
+								<option value="1">Open Grove</option>
+								<option value="2">Open</option>
+							</select>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div id="excludedChecksTab" class="tabcontent">
+				<fieldset class="checkboxFieldset">
+					<legend>Excluded Checks</legend>
+					<ul
+						id="baseExcludedChecksListbox"
+						multiple="multiple"
+						size="10"
+						width="20%"
+						data-tooltip-text="Any checks selected will be excluded, meaning that they cannot contain important items. Please note that settings take priority, so if a check is excluded, but a setting has the check set to be vanilla, it will be vanilla.
+"
+					>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="157" />Agitha Female Ant
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="61" />Agitha Female Beetle
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="463" />Agitha Female
+								Butterfly Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="174" />Agitha Female
+								Dayfly Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="84" />Agitha Female
+								Dragonfly Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="63" />Agitha Female
+								Grasshopper Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="397" />Agitha Female
+								Ladybug Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="131" />Agitha Female
+								Mantis Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="6" />Agitha Female Phasmid
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="338" />Agitha Female Pill
+								Bug Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="307" />Agitha Female Snail
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="129" />Agitha Female Stag
+								Beetle Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="184" />Agitha Male Ant
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="140" />Agitha Male Beetle
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="256" />Agitha Male
+								Butterfly Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="251" />Agitha Male Dayfly
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="121" />Agitha Male
+								Dragonfly Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="431" />Agitha Male
+								Grasshopper Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="28" />Agitha Male Ladybug
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="366" />Agitha Male Mantis
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="69" />Agitha Male Phasmid
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="424" />Agitha Male Pill
+								Bug Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="183" />Agitha Male Snail
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="404" />Agitha Male Stag
+								Beetle Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="247" />Arbiters Grounds
+								Big Key Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="311" />Arbiters Grounds
+								Death Sword Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="477" />Arbiters Grounds
+								Dungeon Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="228" />Arbiters Grounds
+								East Lower Turnable Redead Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="44" />Arbiters Grounds
+								East Turning Room Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="313" />Arbiters Grounds
+								East Upper Turnable Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="118" />Arbiters Grounds
+								East Upper Turnable Redead Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="10" />Arbiters Grounds
+								Entrance Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="392" />Arbiters Grounds
+								Ghoul Rat Room Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="173" />Arbiters Grounds
+								Hidden Wall Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="337" />Arbiters Grounds
+								North Turning Room Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="201" />Arbiters Grounds
+								Spinner Room First Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="180" />Arbiters Grounds
+								Spinner Room Lower Central Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="31" />Arbiters Grounds
+								Spinner Room Lower North Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="343" />Arbiters Grounds
+								Spinner Room Second Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="224" />Arbiters Grounds
+								Spinner Room Stalfos Alcove Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="50" />Arbiters Grounds
+								Stallord Heart Container</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="213" />Arbiters Grounds
+								Torch Room East Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="12" />Arbiters Grounds
+								Torch Room Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="285" />Arbiters Grounds
+								Torch Room West Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="302" />Arbiters Grounds
+								West Chandelier Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="212" />Arbiters Grounds
+								West Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="380" />Arbiters Grounds
+								West Small Chest Behind Block</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="55" />Arbiters Grounds
+								West Stalfos Northeast Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="345" />Arbiters Grounds
+								West Stalfos West Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="220" />Ashei Sketch</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="384" />Auru Gift To
+								Fyer</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="357" />Barnes Bomb
+								Bag</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="260" />Bridge of Eldin
+								Female Phasmid</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="370" />Bridge of Eldin
+								Male Phasmid</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="133" />Bridge of Eldin Owl
+								Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="9" />Bridge of Eldin Owl
+								Statue Sky Character</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="54" />Bulblin Camp First
+								Chest Under Tower At Entrance</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="452" />Bulblin Camp
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="472" />Bulblin Camp
+								Roasted Boar</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="394" />Bulblin Camp Small
+								Chest in Back of Camp</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="319" />Bulblin Guard
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="299" />Castle Town Malo
+								Mart Magic Armor</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="382" />Cats Hide and Seek
+								Minigame</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="379" />Cave of Ordeals
+								Floor 17 Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="250" />Cave of Ordeals
+								Floor 33 Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="304" />Cave of Ordeals
+								Floor 44 Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="158" />Cave of Ordeals
+								Great Fairy Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="268" />Charlo Donation
+								Blessing</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="270" />City in The Sky
+								Aeralfos Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="273" />City in The Sky
+								Argorok Heart Container</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="64" />City in The Sky Baba
+								Tower Alcove Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="208" />City in The Sky
+								Baba Tower Narrow Ledge Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="48" />City in The Sky Baba
+								Tower Top Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="253" />City in The Sky Big
+								Key Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="52" />City in The Sky
+								Central Outside Ledge Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="359" />City in The Sky
+								Central Outside Poe Island Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="70" />City in The Sky
+								Chest Behind North Fan</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="323" />City in The Sky
+								Chest Below Big Key Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="399" />City in The Sky
+								Dungeon Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="146" />City in The Sky
+								East First Wing Chest After Fans</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="122" />City in The Sky
+								East Tile Worm Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="375" />City in The Sky
+								East Wing After Dinalfos Alcove Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="95" />City in The Sky East
+								Wing After Dinalfos Ledge Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="216" />City in The Sky
+								East Wing Lower Level Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="112" />City in The Sky
+								Garden Island Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="292" />City in The Sky Poe
+								Above Central Fan</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="91" />City in The Sky
+								Underwater East Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="22" />City in The Sky
+								Underwater West Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="361" />City in The Sky
+								West Garden Corner Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="329" />City in The Sky
+								West Garden Ledge Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="281" />City in The Sky
+								West Garden Lone Island Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="136" />City in The Sky
+								West Garden Lower Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="314" />City in The Sky
+								West Wing Baba Balcony Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="288" />City in The Sky
+								West Wing First Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="164" />City in The Sky
+								West Wing Narrow Ledge Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="368" />City in The Sky
+								West Wing Tile Worm Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="231" />Coro Bottle</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="362" />Death Mountain
+								Alcove Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="266" />Death Mountain
+								Trail Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="449" />Doctors Office
+								Balcony Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="261" />East Castle Town
+								Bridge Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="430" />Eldin Field Bomb
+								Rock Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="358" />Eldin Field Bomskit
+								Grotto Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="162" />Eldin Field Bomskit
+								Grotto Left Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="309" />Eldin Field Female
+								Grasshopper</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="114" />Eldin Field Male
+								Grasshopper</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="230" />Eldin Field Stalfos
+								Grotto Left Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="98" />Eldin Field Stalfos
+								Grotto Right Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="409" />Eldin Field Stalfos
+								Grotto Stalfos Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="82" />Eldin Field Water
+								Bomb Fish Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="37" />Eldin Lantern Cave
+								First Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="462" />Eldin Lantern Cave
+								Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="469" />Eldin Lantern Cave
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="116" />Eldin Lantern Cave
+								Second Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="279" />Eldin Spring
+								Underwater Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="461" />Eldin Stockcave
+								Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="225" />Eldin Stockcave
+								Lowest Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="331" />Eldin Stockcave
+								Upper Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="265" />Faron Field Bridge
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="389" />Faron Field Corner
+								Grotto Left Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="15" />Faron Field Corner
+								Grotto Rear Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="38" />Faron Field Corner
+								Grotto Right Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="113" />Faron Field Female
+								Beetle</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="405" />Faron Field Male
+								Beetle</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="1" />Faron Field
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="97" />Faron Field Tree
+								Heart Piece</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="36" />Faron Mist Cave
+								Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="317" />Faron Mist Cave
+								Open Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="67" />Faron Mist North
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="107" />Faron Mist
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="192" />Faron Mist South
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="20" />Faron Mist Stump
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="473" />Faron Woods Golden
+								Wolf</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="271" />Faron Woods Owl
+								Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="223" />Faron Woods Owl
+								Statue Sky Character</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="436" />Fishing Hole
+								Bottle</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="369" />Fishing Hole Heart
+								Piece</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="387" />Flight By Fowl
+								Fifth Platform Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="171" />Flight By Fowl
+								Fourth Platform Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="103" />Flight By Fowl
+								Ledge Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="276" />Flight By Fowl
+								Second Platform Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="235" />Flight By Fowl
+								Third Platform Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="432" />Flight By Fowl Top
+								Platform Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="243" />Forest Temple Big
+								Baba Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="346" />Forest Temple Big
+								Key Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="207" />Forest Temple
+								Central Chest Behind Stairs</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="159" />Forest Temple
+								Central Chest Hanging From Web</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="89" />Forest Temple
+								Central North Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="342" />Forest Temple
+								Diababa Heart Container</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="179" />Forest Temple
+								Dungeon Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="306" />Forest Temple East
+								Tile Worm Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="92" />Forest Temple East
+								Water Cave Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="262" />Forest Temple
+								Entrance Vines Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="401" />Forest Temple Gale
+								Boomerang</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="187" />Forest Temple North
+								Deku Like Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="364" />Forest Temple
+								Second Monkey Under Bridge Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="191" />Forest Temple Totem
+								Pole Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="403" />Forest Temple West
+								Deku Like Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="198" />Forest Temple West
+								Tile Worm Chest Behind Stairs</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="120" />Forest Temple West
+								Tile Worm Room Vines Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="371" />Forest Temple
+								Windless Bridge Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="141" />Gerudo Desert
+								Campfire East Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="353" />Gerudo Desert
+								Campfire North Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="239" />Gerudo Desert
+								Campfire West Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="206" />Gerudo Desert East
+								Canyon Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="393" />Gerudo Desert East
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="241" />Gerudo Desert
+								Female Dayfly</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="238" />Gerudo Desert
+								Golden Wolf</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="17" />Gerudo Desert Lone
+								Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="277" />Gerudo Desert Male
+								Dayfly</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="426" />Gerudo Desert North
+								Peahat Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="418" />Gerudo Desert North
+								Small Chest Before Bulblin Camp</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="26" />Gerudo Desert
+								Northeast Chest Behind Gates</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="278" />Gerudo Desert
+								Northwest Chest Behind Gates</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="441" />Gerudo Desert Owl
+								Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="440" />Gerudo Desert Owl
+								Statue Sky Character</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="75" />Gerudo Desert Peahat
+								Ledge Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="81" />Gerudo Desert Poe
+								Above Cave of Ordeals</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="115" />Gerudo Desert Rock
+								Grotto First Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="18" />Gerudo Desert Rock
+								Grotto Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="347" />Gerudo Desert Rock
+								Grotto Second Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="402" />Gerudo Desert
+								Skulltula Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="295" />Gerudo Desert South
+								Chest Behind Wooden Gates</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="365" />Gerudo Desert West
+								Canyon Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="85" />Gift From
+								Ralis</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="5" />Goron Mines After
+								Crystal Switch Room Magnet Wall Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="219" />Goron Mines Beamos
+								Room Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="182" />Goron Mines Chest
+								Before Dangoro</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="2" />Goron Mines Crystal
+								Switch Room Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="287" />Goron Mines Crystal
+								Switch Room Underwater Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="111" />Goron Mines Dangoro
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="310" />Goron Mines Dungeon
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="383" />Goron Mines
+								Entrance Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="354" />Goron Mines Fyrus
+								Heart Container</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="65" />Goron Mines Gor
+								Amato Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="459" />Goron Mines Gor
+								Amato Key Shard</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="340" />Goron Mines Gor
+								Amato Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="66" />Goron Mines Gor
+								Ebizo Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="259" />Goron Mines Gor
+								Ebizo Key Shard</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="43" />Goron Mines Gor
+								Liggs Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="3" />Goron Mines Gor Liggs
+								Key Shard</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="356" />Goron Mines Magnet
+								Maze Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="339" />Goron Mines Main
+								Magnet Room Bottom Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="255" />Goron Mines Main
+								Magnet Room Top Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="297" />Goron Mines Outside
+								Beamos Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="137" />Goron Mines Outside
+								Clawshot Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="155" />Goron Mines Outside
+								Underwater Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="172" />Goron Springwater
+								Rush</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="425" />Herding Goats
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="391" />Hidden Village
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="142" />Hyrule Castle Big
+								Key Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="453" />Hyrule Castle East
+								Wing Balcony Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="152" />Hyrule Castle East
+								Wing Boomerang Puzzle Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="328" />Hyrule Castle
+								Graveyard Grave Switch Room Back Left Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="274" />Hyrule Castle
+								Graveyard Grave Switch Room Front Left Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="282" />Hyrule Castle
+								Graveyard Grave Switch Room Right Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="14" />Hyrule Castle
+								Graveyard Owl Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="151" />Hyrule Castle King
+								Bulblin Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="355" />Hyrule Castle
+								Lantern Staircase Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="25" />Hyrule Castle Main
+								Hall Northeast Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="177" />Hyrule Castle Main
+								Hall Northwest Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="109" />Hyrule Castle Main
+								Hall Southwest Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="263" />Hyrule Castle
+								Southeast Balcony Tower Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="248" />Hyrule Castle
+								Treasure Room Eighth Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="168" />Hyrule Castle
+								Treasure Room Fifth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="181" />Hyrule Castle
+								Treasure Room Fifth Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="465" />Hyrule Castle
+								Treasure Room First Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="154" />Hyrule Castle
+								Treasure Room First Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="211" />Hyrule Castle
+								Treasure Room Fourth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="100" />Hyrule Castle
+								Treasure Room Fourth Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="294" />Hyrule Castle
+								Treasure Room Second Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="93" />Hyrule Castle
+								Treasure Room Second Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="29" />Hyrule Castle
+								Treasure Room Seventh Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="264" />Hyrule Castle
+								Treasure Room Sixth Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="11" />Hyrule Castle
+								Treasure Room Third Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="254" />Hyrule Castle
+								Treasure Room Third Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="163" />Hyrule Castle West
+								Courtyard Central Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="128" />Hyrule Castle West
+								Courtyard North Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="126" />Hyrule Field
+								Amphitheater Owl Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="303" />Hyrule Field
+								Amphitheater Owl Statue Sky Character</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="74" />Hyrule Field
+								Amphitheater Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="27" />Ilia Charm</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="395" />Ilia Memory
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="286" />Isle of Riches
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="76" />Iza Helping
+								Hand</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="336" />Iza Raging Rapids
+								Minigame</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="57" />Jovani 20 Poe Soul
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="474" />Jovani 60 Poe Soul
+								Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="301" />Jovani House
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="433" />Kakariko Gorge
+								Double Clawshot Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="460" />Kakariko Gorge
+								Female Pill Bug</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="326" />Kakariko Gorge Male
+								Pill Bug</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="280" />Kakariko Gorge Owl
+								Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="400" />Kakariko Gorge Owl
+								Statue Sky Character</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="226" />Kakariko Gorge
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="446" />Kakariko Gorge
+								Spire Heart Piece</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="218" />Kakariko Graveyard
+								Golden Wolf</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="352" />Kakariko Graveyard
+								Grave Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="305" />Kakariko Graveyard
+								Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="407" />Kakariko Graveyard
+								Male Ant</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="161" />Kakariko Graveyard
+								Open Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="60" />Kakariko Inn
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="49" />Kakariko Village
+								Bomb Rock Spire Heart Piece</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="106" />Kakariko Village
+								Bomb Shop Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="324" />Kakariko Village
+								Female Ant</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="101" />Kakariko Village
+								Malo Mart Hawkeye</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="470" />Kakariko Village
+								Malo Mart Hylian Shield</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="475" />Kakariko Village
+								Malo Mart Red Potion</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="476" />Kakariko Village
+								Malo Mart Wooden Shield</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="83" />Kakariko Village
+								Watchtower Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="149" />Kakariko Watchtower
+								Alcove Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="388" />Kakariko Watchtower
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="438" />Lake Hylia Alcove
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="176" />Lake Hylia Bridge
+								Bubble Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="135" />Lake Hylia Bridge
+								Cliff Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="108" />Lake Hylia Bridge
+								Cliff Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="312" />Lake Hylia Bridge
+								Female Mantis</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="330" />Lake Hylia Bridge
+								Male Mantis</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="414" />Lake Hylia Bridge
+								Owl Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="417" />Lake Hylia Bridge
+								Owl Statue Sky Character</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="94" />Lake Hylia Bridge
+								Vines Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="196" />Lake Hylia Dock
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="197" />Lake Hylia Shell
+								Blade Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="30" />Lake Hylia Tower
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="320" />Lake Hylia
+								Underwater Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="19" />Lake Hylia Water
+								Toadpoli Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="193" />Lake Lantern Cave
+								Eighth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="156" />Lake Lantern Cave
+								Eleventh Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="421" />Lake Lantern Cave
+								End Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="138" />Lake Lantern Cave
+								Fifth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="71" />Lake Lantern Cave
+								Final Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="386" />Lake Lantern Cave
+								First Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="99" />Lake Lantern Cave
+								First Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="233" />Lake Lantern Cave
+								Fourteenth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="144" />Lake Lantern Cave
+								Fourth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="148" />Lake Lantern Cave
+								Ninth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="77" />Lake Lantern Cave
+								Second Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="232" />Lake Lantern Cave
+								Second Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="454" />Lake Lantern Cave
+								Seventh Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="429" />Lake Lantern Cave
+								Sixth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="147" />Lake Lantern Cave
+								Tenth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="333" />Lake Lantern Cave
+								Third Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="200" />Lake Lantern Cave
+								Thirteenth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="236" />Lake Lantern Cave
+								Twelfth Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="468" />Lakebed Temple
+								Before Deku Toad Alcove Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="185" />Lakebed Temple
+								Before Deku Toad Underwater Left Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="447" />Lakebed Temple
+								Before Deku Toad Underwater Right Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="322" />Lakebed Temple Big
+								Key Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="188" />Lakebed Temple
+								Central Room Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="78" />Lakebed Temple
+								Central Room Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="416" />Lakebed Temple
+								Central Room Spire Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="419" />Lakebed Temple
+								Chandelier Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="195" />Lakebed Temple Deku
+								Toad Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="428" />Lakebed Temple
+								Dungeon Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="145" />Lakebed Temple East
+								Lower Waterwheel Bridge Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="41" />Lakebed Temple East
+								Lower Waterwheel Stalactite Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="73" />Lakebed Temple East
+								Second Floor Southeast Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="348" />Lakebed Temple East
+								Second Floor Southwest Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="300" />Lakebed Temple East
+								Water Supply Clawshot Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="308" />Lakebed Temple East
+								Water Supply Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="318" />Lakebed Temple
+								Lobby Left Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="132" />Lakebed Temple
+								Lobby Rear Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="33" />Lakebed Temple
+								Morpheel Heart Container</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="377" />Lakebed Temple
+								Stalactite Room Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="411" />Lakebed Temple
+								Underwater Maze Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="68" />Lakebed Temple West
+								Lower Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="130" />Lakebed Temple West
+								Second Floor Central Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="240" />Lakebed Temple West
+								Second Floor Northeast Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="87" />Lakebed Temple West
+								Second Floor Southeast Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="217" />Lakebed Temple West
+								Second Floor Southwest Underwater Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="104" />Lakebed Temple West
+								Water Supply Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="316" />Lakebed Temple West
+								Water Supply Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="227" />Lanayru Field
+								Behind Gate Underwater Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="434" />Lanayru Field
+								Bridge Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="45" />Lanayru Field Female
+								Stag Beetle</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="90" />Lanayru Field Male
+								Stag Beetle</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="21" />Lanayru Field Poe
+								Grotto Left Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="439" />Lanayru Field Poe
+								Grotto Right Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="35" />Lanayru Field
+								Skulltula Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="335" />Lanayru Field
+								Spinner Track Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="367" />Lanayru Ice Block
+								Puzzle Cave Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="396" />Lanayru Spring Back
+								Room Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="62" />Lanayru Spring Back
+								Room Left Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="215" />Lanayru Spring Back
+								Room Right Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="455" />Lanayru Spring East
+								Double Clawshot Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="413" />Lanayru Spring
+								Underwater Left Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="205" />Lanayru Spring
+								Underwater Right Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="283" />Lanayru Spring West
+								Double Clawshot Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="79" />Links Basement
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="291" />Lost Woods Boulder
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="34" />Lost Woods Lantern
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="160" />Lost Woods
+								Waterfall Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="363" />North Castle Town
+								Golden Wolf</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="47" />North Faron Woods
+								Deku Baba Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="410" />Ordon Cat
+								Rescue</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="39" />Ordon Ranch Grotto
+								Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="170" />Ordon Shield</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="24" />Ordon Spring Golden
+								Wolf</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="293" />Ordon Sword</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="315" />Outside Arbiters
+								Grounds Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="124" />Outside Arbiters
+								Grounds Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="448" />Outside Bulblin
+								Camp Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="390" />Outside Lanayru
+								Spring Left Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="450" />Outside Lanayru
+								Spring Right Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="125" />Outside South
+								Castle Town Double Clawshot Chasm Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="464" />Outside South
+								Castle Town Female Ladybug</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="246" />Outside South
+								Castle Town Fountain Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="209" />Outside South
+								Castle Town Golden Wolf</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="56" />Outside South Castle
+								Town Male Ladybug</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="457" />Outside South
+								Castle Town Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="257" />Outside South
+								Castle Town Tektite Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="175" />Outside South
+								Castle Town Tightrope Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="139" />Palace of Twilight
+								Big Key Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="442" />Palace of Twilight
+								Central First Room Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="153" />Palace of Twilight
+								Central Outdoor Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="123" />Palace of Twilight
+								Central Tower Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="202" />Palace of Twilight
+								Collect Both Sols</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="471" />Palace of Twilight
+								East Wing First Room East Alcove</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="406" />Palace of Twilight
+								East Wing First Room North Small Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="53" />Palace of Twilight
+								East Wing First Room West Alcove</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="252" />Palace of Twilight
+								East Wing First Room Zant Head Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="105" />Palace of Twilight
+								East Wing Second Room Northeast Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="13" />Palace of Twilight
+								East Wing Second Room Northwest Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="327" />Palace of Twilight
+								East Wing Second Room Southeast Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="0" />Palace of Twilight
+								East Wing Second Room Southwest Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="242" />Palace of Twilight
+								West Wing Chest Behind Wall of Darkness</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="398" />Palace of Twilight
+								West Wing First Room Central Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="373" />Palace of Twilight
+								West Wing Second Room Central Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="258" />Palace of Twilight
+								West Wing Second Room Lower South Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="117" />Palace of Twilight
+								West Wing Second Room Southeast Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="298" />Palace of Twilight
+								Zant Heart Container</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="445" />Plumm Fruit Balloon
+								Minigame</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="199" />Renados
+								Letter</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="374" />Rutelas
+								Blessing</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="290" />Sacred Grove Baba
+								Serpent Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="222" />Sacred Grove Female
+								Snail</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="229" />Sacred Grove Male
+								Snail</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="244" />Sacred Grove Master
+								Sword Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="32" />Sacred Grove Past
+								Owl Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="478" />Sacred Grove
+								Pedestal Master Sword</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="479" />Sacred Grove
+								Pedestal Shadow Crystal</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="344" />Sacred Grove
+								Spinner Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="119" />Sacred Grove Temple
+								of Time Owl Statue Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="40" />Sera Shop
+								Slingshot</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="166" />Skybook From
+								Impaz</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="289" />Snowboard Racing
+								Prize</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="385" />Snowpeak Above
+								Freezard Grotto Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="210" />Snowpeak Blizzard
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="80" />Snowpeak Cave Ice
+								Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="376" />Snowpeak Cave Ice
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="296" />Snowpeak Freezard
+								Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="456" />Snowpeak Icy Summit
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="423" />Snowpeak Poe Among
+								Trees</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="444" />Snowpeak Ruins Ball
+								and Chain</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="334" />Snowpeak Ruins
+								Blizzeta Heart Container</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="284" />Snowpeak Ruins
+								Broken Floor Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="427" />Snowpeak Ruins
+								Chapel Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="42" />Snowpeak Ruins Chest
+								After Darkhammer</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="275" />Snowpeak Ruins
+								Courtyard Central Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="237" />Snowpeak Ruins
+								Dungeon Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="7" />Snowpeak Ruins East
+								Courtyard Buried Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="437" />Snowpeak Ruins East
+								Courtyard Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="178" />Snowpeak Ruins Ice
+								Room Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="96" />Snowpeak Ruins Lobby
+								Armor Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="194" />Snowpeak Ruins
+								Lobby Chandelier Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="8" />Snowpeak Ruins Lobby
+								East Armor Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="269" />Snowpeak Ruins
+								Lobby Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="267" />Snowpeak Ruins
+								Lobby West Armor Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="234" />Snowpeak Ruins
+								Mansion Map</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="127" />Snowpeak Ruins
+								Northeast Chandelier Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="165" />Snowpeak Ruins
+								Ordon Pumpkin Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="351" />Snowpeak Ruins West
+								Cannon Room Central Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="412" />Snowpeak Ruins West
+								Cannon Room Corner Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="249" />Snowpeak Ruins West
+								Courtyard Buried Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="443" />Snowpeak Ruins
+								Wooden Beam Central Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="272" />Snowpeak Ruins
+								Wooden Beam Chandelier Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="467" />Snowpeak Ruins
+								Wooden Beam Northwest Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="86" />South Faron Cave
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="167" />STAR Prize 1</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="360" />STAR Prize 2</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="415" />Talo
+								Sharpshooting</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="466" />Telma
+								Invoice</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="350" />Temple of Time
+								Armogohma Heart Container</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="349" />Temple of Time
+								Armos Antechamber East Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="321" />Temple of Time
+								Armos Antechamber North Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="378" />Temple of Time
+								Armos Antechamber Statue Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="214" />Temple of Time Big
+								Key Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="422" />Temple of Time
+								Chest Before Darknut</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="88" />Temple of Time
+								Darknut Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="23" />Temple of Time
+								Dungeon Reward</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="245" />Temple of Time
+								First Staircase Armos Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="189" />Temple of Time
+								First Staircase Gohma Gate Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="190" />Temple of Time
+								First Staircase Window Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="332" />Temple of Time
+								Floor Switch Puzzle Room Upper Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="381" />Temple of Time
+								Gilloutine Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="72" />Temple of Time Lobby
+								Lantern Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="143" />Temple of Time
+								Moving Wall Beamos Room Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="204" />Temple of Time
+								Moving Wall Dinalfos Room Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="186" />Temple of Time Poe
+								Above Scales</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="325" />Temple of Time Poe
+								Behind Gate</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="458" />Temple of Time
+								Scales Gohma Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="408" />Temple of Time
+								Scales Upper Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="102" />Uli Cradle
+								Delivery</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="203" />Upper Zoras River
+								Female Dragonfly</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="451" />Upper Zoras River
+								Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="221" />West Hyrule Field
+								Female Butterfly</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="134" />West Hyrule Field
+								Golden Wolf</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="58" />West Hyrule Field
+								Helmasaur Grotto Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="150" />West Hyrule Field
+								Male Butterfly</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="435" />Wooden
+								Statue</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="110" />Wooden Sword
+								Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="4" />Wrestling With
+								Bo</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="51" />Zoras Domain Chest
+								Behind Waterfall</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="46" />Zoras Domain Chest
+								By Mother and Child Isles</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="420" />Zoras Domain
+								Extinguish All Torches Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="372" />Zoras Domain Light
+								All Torches Chest</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="16" />Zoras Domain Male
+								Dragonfly</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="169" />Zoras Domain Mother
+								and Child Isle Poe</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="59" />Zoras Domain
+								Underwater Goron</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-checkid="341" />Zoras Domain
+								Waterfall Poe</label
+							>
+						</li>
+					</ul>
+				</fieldset>
+			</div>
+
+			<div id="startingInventoryTab" class="tabcontent">
+				<fieldset class="checkboxFieldset">
+					<legend>Starting Items</legend>
+					<ul
+						id="baseImportantItemsListbox"
+						multiple="multiple"
+						size="10"
+						width="20%"
+						data-tooltip-text="The player will start with any items selected and the playthrough will take them into account for logic.
+"
+					>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="50" />Shadow Crystal</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="132" />Horse Call</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="243" />Gate Keys</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="63" />Progressive
+								Sword</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="63" />Progressive
+								Sword</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="63" />Progressive
+								Sword</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="63" />Progressive
+								Sword</label
+							>
+						</li>
+						<li>
+							<label><input type="checkbox" data-itemid="64" />Boomerang</label>
+						</li>
+						<li>
+							<label><input type="checkbox" data-itemid="72" />Lantern</label>
+						</li>
+						<li>
+							<label><input type="checkbox" data-itemid="75" />Slingshot</label>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="74" />Progressive Fishing
+								Rod</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="74" />Progressive Fishing
+								Rod</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="69" />Iron Boots</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="67" />Progressive
+								Bow</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="67" />Progressive
+								Bow</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="67" />Progressive
+								Bow</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="81" />Bomb Bag and
+								Bombs</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="81" />Bomb Bag and
+								Bombs</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="81" />Bomb Bag and
+								Bombs</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="79" />Giant Bomb Bag</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="49" />Zora Armor</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="68" />Progressive
+								Clawshot</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="68" />Progressive
+								Clawshot</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="144" />Aurus Memo</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="145" />Asheis Sketch</label
+							>
+						</li>
+						<li>
+							<label><input type="checkbox" data-itemid="65" />Spinner</label>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="66" />Ball and Chain</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="70" />Progressive Dominion
+								Rod</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="70" />Progressive Dominion
+								Rod</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="96" />Empty Bottle</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="48" />Magic Armor</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="42" />Ordon Shield</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="44" />Hylian Shield</label
+							>
+						</li>
+						<li>
+							<label><input type="checkbox" data-itemid="62" />Hawkeye</label>
+						</li>
+						<li class="liSlider">
+							<label
+								><div>Progressive Sky Book</div>
+								<div class="liSlider-inputRow">
+									<input
+										type="range"
+										value="0"
+										min="0"
+										max="7"
+										data-itemid="233"
+									/><span class="liSlider-inputRowText">0</span>
+								</div></label
+							>
+						</li>
+						<li class="liSlider">
+							<label
+								><div>Progressive Hidden Skill</div>
+								<div class="liSlider-inputRow">
+									<input
+										type="range"
+										value="0"
+										min="0"
+										max="7"
+										data-itemid="225"
+									/><span class="liSlider-inputRowText">0</span>
+								</div></label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="133" />Forest Temple Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="133" />Forest Temple Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="133" />Forest Temple Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="133" />Forest Temple Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="146" />Forest Temple Big
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="134" />Goron Mines Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="134" />Goron Mines Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="134" />Goron Mines Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="249" />Goron Mines Key
+								Shard</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="249" />Goron Mines Key
+								Shard</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="249" />Goron Mines Key
+								Shard</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="135" />Lakebed Temple Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="135" />Lakebed Temple Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="135" />Lakebed Temple Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="147" />Lakebed Temple Big
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="136" />Arbiter's Grounds
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="136" />Arbiter's Grounds
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="136" />Arbiter's Grounds
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="136" />Arbiter's Grounds
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="136" />Arbiter's Grounds
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="148" />Arbiter's Grounds
+								Big Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="137" />Snowpeak Ruins Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="137" />Snowpeak Ruins Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="137" />Snowpeak Ruins Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="137" />Snowpeak Ruins Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="244" />Snowpeak Ruins Ordon
+								Pumpkin</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="245" />Snowpeak Ruins Ordon
+								Goat Cheese</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="246" />Snowpeak Ruins
+								Bedroom Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="138" />Temple of Time Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="138" />Temple of Time Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="138" />Temple of Time Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="149" />Temple of Time Big
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="139" />City in the Sky
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="150" />City in the Sky Big
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="140" />Palace of Twilight
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="140" />Palace of Twilight
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="140" />Palace of Twilight
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="140" />Palace of Twilight
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="140" />Palace of Twilight
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="140" />Palace of Twilight
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="140" />Palace of Twilight
+								Small Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="151" />Palace of Twilight
+								Big Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="141" />Hyrule Castle Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="141" />Hyrule Castle Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="141" />Hyrule Castle Small
+								Key</label
+							>
+						</li>
+						<li>
+							<label
+								><input type="checkbox" data-itemid="152" />Hyrule Castle Big
+								Key</label
+							>
+						</li>
+						<li class="liSlider">
+							<label
+								><div>Poe Soul</div>
+								<div class="liSlider-inputRow">
+									<input
+										type="range"
+										value="0"
+										min="0"
+										max="60"
+										data-itemid="224"
+									/><span class="liSlider-inputRowText">0</span>
+								</div></label
+							>
+						</li>
+					</ul>
+				</fieldset>
+			</div>
+
+			<div id="plandoTab" class="tabcontent tabcontentactive">
+				<fieldset class="checkboxFieldset">
+					<legend>Plando</legend>
+					<div class="plandoHelperText">
+						Specify the exact reward of a check.
+					</div>
+
+					<div class="plandoEntryRow">
+						<select
+							id="plandoCheckSelect"
+							data-select2-id="select2-data-plandoCheckSelect"
+							tabindex="-1"
+							class="select2-hidden-accessible"
+							aria-hidden="true"
+						>
+							<option value="157" data-select2-id="select2-data-2-fmw9">
+								Agitha Female Ant Reward
+							</option>
+							<option value="61">Agitha Female Beetle Reward</option>
+							<option value="463">Agitha Female Butterfly Reward</option>
+							<option value="174">Agitha Female Dayfly Reward</option>
+							<option value="84">Agitha Female Dragonfly Reward</option>
+							<option value="63">Agitha Female Grasshopper Reward</option>
+							<option value="397">Agitha Female Ladybug Reward</option>
+							<option value="131">Agitha Female Mantis Reward</option>
+							<option value="6">Agitha Female Phasmid Reward</option>
+							<option value="338">Agitha Female Pill Bug Reward</option>
+							<option value="307">Agitha Female Snail Reward</option>
+							<option value="129">Agitha Female Stag Beetle Reward</option>
+							<option value="184">Agitha Male Ant Reward</option>
+							<option value="140">Agitha Male Beetle Reward</option>
+							<option value="256">Agitha Male Butterfly Reward</option>
+							<option value="251">Agitha Male Dayfly Reward</option>
+							<option value="121">Agitha Male Dragonfly Reward</option>
+							<option value="431">Agitha Male Grasshopper Reward</option>
+							<option value="28">Agitha Male Ladybug Reward</option>
+							<option value="366">Agitha Male Mantis Reward</option>
+							<option value="69">Agitha Male Phasmid Reward</option>
+							<option value="424">Agitha Male Pill Bug Reward</option>
+							<option value="183">Agitha Male Snail Reward</option>
+							<option value="404">Agitha Male Stag Beetle Reward</option>
+							<option value="247">Arbiters Grounds Big Key Chest</option>
+							<option value="311">Arbiters Grounds Death Sword Chest</option>
+							<option value="477">Arbiters Grounds Dungeon Reward</option>
+							<option value="228">
+								Arbiters Grounds East Lower Turnable Redead Chest
+							</option>
+							<option value="44">Arbiters Grounds East Turning Room Poe</option>
+							<option value="313">
+								Arbiters Grounds East Upper Turnable Chest
+							</option>
+							<option value="118">
+								Arbiters Grounds East Upper Turnable Redead Chest
+							</option>
+							<option value="10">Arbiters Grounds Entrance Chest</option>
+							<option value="392">Arbiters Grounds Ghoul Rat Room Chest</option>
+							<option value="173">Arbiters Grounds Hidden Wall Poe</option>
+							<option value="337">
+								Arbiters Grounds North Turning Room Chest
+							</option>
+							<option value="201">
+								Arbiters Grounds Spinner Room First Small Chest
+							</option>
+							<option value="180">
+								Arbiters Grounds Spinner Room Lower Central Small Chest
+							</option>
+							<option value="31">
+								Arbiters Grounds Spinner Room Lower North Chest
+							</option>
+							<option value="343">
+								Arbiters Grounds Spinner Room Second Small Chest
+							</option>
+							<option value="224">
+								Arbiters Grounds Spinner Room Stalfos Alcove Chest
+							</option>
+							<option value="50">
+								Arbiters Grounds Stallord Heart Container
+							</option>
+							<option value="213">
+								Arbiters Grounds Torch Room East Chest
+							</option>
+							<option value="12">Arbiters Grounds Torch Room Poe</option>
+							<option value="285">
+								Arbiters Grounds Torch Room West Chest
+							</option>
+							<option value="302">
+								Arbiters Grounds West Chandelier Chest
+							</option>
+							<option value="212">Arbiters Grounds West Poe</option>
+							<option value="380">
+								Arbiters Grounds West Small Chest Behind Block
+							</option>
+							<option value="55">
+								Arbiters Grounds West Stalfos Northeast Chest
+							</option>
+							<option value="345">
+								Arbiters Grounds West Stalfos West Chest
+							</option>
+							<option value="220">Ashei Sketch</option>
+							<option value="384">Auru Gift To Fyer</option>
+							<option value="357">Barnes Bomb Bag</option>
+							<option value="260">Bridge of Eldin Female Phasmid</option>
+							<option value="370">Bridge of Eldin Male Phasmid</option>
+							<option value="133">Bridge of Eldin Owl Statue Chest</option>
+							<option value="9">
+								Bridge of Eldin Owl Statue Sky Character
+							</option>
+							<option value="54">
+								Bulblin Camp First Chest Under Tower At Entrance
+							</option>
+							<option value="452">Bulblin Camp Poe</option>
+							<option value="472">Bulblin Camp Roasted Boar</option>
+							<option value="394">
+								Bulblin Camp Small Chest in Back of Camp
+							</option>
+							<option value="319">Bulblin Guard Key</option>
+							<option value="299">Castle Town Malo Mart Magic Armor</option>
+							<option value="382">Cats Hide and Seek Minigame</option>
+							<option value="379">Cave of Ordeals Floor 17 Poe</option>
+							<option value="250">Cave of Ordeals Floor 33 Poe</option>
+							<option value="304">Cave of Ordeals Floor 44 Poe</option>
+							<option value="158">Cave of Ordeals Great Fairy Reward</option>
+							<option value="268">Charlo Donation Blessing</option>
+							<option value="270">City in The Sky Aeralfos Chest</option>
+							<option value="273">
+								City in The Sky Argorok Heart Container
+							</option>
+							<option value="64">
+								City in The Sky Baba Tower Alcove Chest
+							</option>
+							<option value="208">
+								City in The Sky Baba Tower Narrow Ledge Chest
+							</option>
+							<option value="48">
+								City in The Sky Baba Tower Top Small Chest
+							</option>
+							<option value="253">City in The Sky Big Key Chest</option>
+							<option value="52">
+								City in The Sky Central Outside Ledge Chest
+							</option>
+							<option value="359">
+								City in The Sky Central Outside Poe Island Chest
+							</option>
+							<option value="70">City in The Sky Chest Behind North Fan</option>
+							<option value="323">
+								City in The Sky Chest Below Big Key Chest
+							</option>
+							<option value="399">City in The Sky Dungeon Reward</option>
+							<option value="146">
+								City in The Sky East First Wing Chest After Fans
+							</option>
+							<option value="122">
+								City in The Sky East Tile Worm Small Chest
+							</option>
+							<option value="375">
+								City in The Sky East Wing After Dinalfos Alcove Chest
+							</option>
+							<option value="95">
+								City in The Sky East Wing After Dinalfos Ledge Chest
+							</option>
+							<option value="216">
+								City in The Sky East Wing Lower Level Chest
+							</option>
+							<option value="112">City in The Sky Garden Island Poe</option>
+							<option value="292">City in The Sky Poe Above Central Fan</option>
+							<option value="91">City in The Sky Underwater East Chest</option>
+							<option value="22">City in The Sky Underwater West Chest</option>
+							<option value="361">
+								City in The Sky West Garden Corner Chest
+							</option>
+							<option value="329">
+								City in The Sky West Garden Ledge Chest
+							</option>
+							<option value="281">
+								City in The Sky West Garden Lone Island Chest
+							</option>
+							<option value="136">
+								City in The Sky West Garden Lower Chest
+							</option>
+							<option value="314">
+								City in The Sky West Wing Baba Balcony Chest
+							</option>
+							<option value="288">City in The Sky West Wing First Chest</option>
+							<option value="164">
+								City in The Sky West Wing Narrow Ledge Chest
+							</option>
+							<option value="368">
+								City in The Sky West Wing Tile Worm Chest
+							</option>
+							<option value="231">Coro Bottle</option>
+							<option value="362">Death Mountain Alcove Chest</option>
+							<option value="266">Death Mountain Trail Poe</option>
+							<option value="449">Doctors Office Balcony Chest</option>
+							<option value="261">East Castle Town Bridge Poe</option>
+							<option value="430">Eldin Field Bomb Rock Chest</option>
+							<option value="358">
+								Eldin Field Bomskit Grotto Lantern Chest
+							</option>
+							<option value="162">Eldin Field Bomskit Grotto Left Chest</option>
+							<option value="309">Eldin Field Female Grasshopper</option>
+							<option value="114">Eldin Field Male Grasshopper</option>
+							<option value="230">
+								Eldin Field Stalfos Grotto Left Small Chest
+							</option>
+							<option value="98">
+								Eldin Field Stalfos Grotto Right Small Chest
+							</option>
+							<option value="409">
+								Eldin Field Stalfos Grotto Stalfos Chest
+							</option>
+							<option value="82">
+								Eldin Field Water Bomb Fish Grotto Chest
+							</option>
+							<option value="37">Eldin Lantern Cave First Chest</option>
+							<option value="462">Eldin Lantern Cave Lantern Chest</option>
+							<option value="469">Eldin Lantern Cave Poe</option>
+							<option value="116">Eldin Lantern Cave Second Chest</option>
+							<option value="279">Eldin Spring Underwater Chest</option>
+							<option value="461">Eldin Stockcave Lantern Chest</option>
+							<option value="225">Eldin Stockcave Lowest Chest</option>
+							<option value="331">Eldin Stockcave Upper Chest</option>
+							<option value="265">Faron Field Bridge Chest</option>
+							<option value="389">Faron Field Corner Grotto Left Chest</option>
+							<option value="15">Faron Field Corner Grotto Rear Chest</option>
+							<option value="38">Faron Field Corner Grotto Right Chest</option>
+							<option value="113">Faron Field Female Beetle</option>
+							<option value="405">Faron Field Male Beetle</option>
+							<option value="1">Faron Field Poe</option>
+							<option value="97">Faron Field Tree Heart Piece</option>
+							<option value="36">Faron Mist Cave Lantern Chest</option>
+							<option value="317">Faron Mist Cave Open Chest</option>
+							<option value="67">Faron Mist North Chest</option>
+							<option value="107">Faron Mist Poe</option>
+							<option value="192">Faron Mist South Chest</option>
+							<option value="20">Faron Mist Stump Chest</option>
+							<option value="473">Faron Woods Golden Wolf</option>
+							<option value="271">Faron Woods Owl Statue Chest</option>
+							<option value="223">Faron Woods Owl Statue Sky Character</option>
+							<option value="436">Fishing Hole Bottle</option>
+							<option value="369">Fishing Hole Heart Piece</option>
+							<option value="387">Flight By Fowl Fifth Platform Chest</option>
+							<option value="171">Flight By Fowl Fourth Platform Chest</option>
+							<option value="103">Flight By Fowl Ledge Poe</option>
+							<option value="276">Flight By Fowl Second Platform Chest</option>
+							<option value="235">Flight By Fowl Third Platform Chest</option>
+							<option value="432">Flight By Fowl Top Platform Reward</option>
+							<option value="243">Forest Temple Big Baba Key</option>
+							<option value="346">Forest Temple Big Key Chest</option>
+							<option value="207">
+								Forest Temple Central Chest Behind Stairs
+							</option>
+							<option value="159">
+								Forest Temple Central Chest Hanging From Web
+							</option>
+							<option value="89">Forest Temple Central North Chest</option>
+							<option value="342">Forest Temple Diababa Heart Container</option>
+							<option value="179">Forest Temple Dungeon Reward</option>
+							<option value="306">Forest Temple East Tile Worm Chest</option>
+							<option value="92">Forest Temple East Water Cave Chest</option>
+							<option value="262">Forest Temple Entrance Vines Chest</option>
+							<option value="401">Forest Temple Gale Boomerang</option>
+							<option value="187">Forest Temple North Deku Like Chest</option>
+							<option value="364">
+								Forest Temple Second Monkey Under Bridge Chest
+							</option>
+							<option value="191">Forest Temple Totem Pole Chest</option>
+							<option value="403">Forest Temple West Deku Like Chest</option>
+							<option value="198">
+								Forest Temple West Tile Worm Chest Behind Stairs
+							</option>
+							<option value="120">
+								Forest Temple West Tile Worm Room Vines Chest
+							</option>
+							<option value="371">Forest Temple Windless Bridge Chest</option>
+							<option value="141">Gerudo Desert Campfire East Chest</option>
+							<option value="353">Gerudo Desert Campfire North Chest</option>
+							<option value="239">Gerudo Desert Campfire West Chest</option>
+							<option value="206">Gerudo Desert East Canyon Chest</option>
+							<option value="393">Gerudo Desert East Poe</option>
+							<option value="241">Gerudo Desert Female Dayfly</option>
+							<option value="238">Gerudo Desert Golden Wolf</option>
+							<option value="17">Gerudo Desert Lone Small Chest</option>
+							<option value="277">Gerudo Desert Male Dayfly</option>
+							<option value="426">Gerudo Desert North Peahat Poe</option>
+							<option value="418">
+								Gerudo Desert North Small Chest Before Bulblin Camp
+							</option>
+							<option value="26">
+								Gerudo Desert Northeast Chest Behind Gates
+							</option>
+							<option value="278">
+								Gerudo Desert Northwest Chest Behind Gates
+							</option>
+							<option value="441">Gerudo Desert Owl Statue Chest</option>
+							<option value="440">
+								Gerudo Desert Owl Statue Sky Character
+							</option>
+							<option value="75">Gerudo Desert Peahat Ledge Chest</option>
+							<option value="81">
+								Gerudo Desert Poe Above Cave of Ordeals
+							</option>
+							<option value="115">Gerudo Desert Rock Grotto First Poe</option>
+							<option value="18">
+								Gerudo Desert Rock Grotto Lantern Chest
+							</option>
+							<option value="347">Gerudo Desert Rock Grotto Second Poe</option>
+							<option value="402">Gerudo Desert Skulltula Grotto Chest</option>
+							<option value="295">
+								Gerudo Desert South Chest Behind Wooden Gates
+							</option>
+							<option value="365">Gerudo Desert West Canyon Chest</option>
+							<option value="85">Gift From Ralis</option>
+							<option value="5">
+								Goron Mines After Crystal Switch Room Magnet Wall Chest
+							</option>
+							<option value="219">Goron Mines Beamos Room Chest</option>
+							<option value="182">Goron Mines Chest Before Dangoro</option>
+							<option value="2">
+								Goron Mines Crystal Switch Room Small Chest
+							</option>
+							<option value="287">
+								Goron Mines Crystal Switch Room Underwater Chest
+							</option>
+							<option value="111">Goron Mines Dangoro Chest</option>
+							<option value="310">Goron Mines Dungeon Reward</option>
+							<option value="383">Goron Mines Entrance Chest</option>
+							<option value="354">Goron Mines Fyrus Heart Container</option>
+							<option value="65">Goron Mines Gor Amato Chest</option>
+							<option value="459">Goron Mines Gor Amato Key Shard</option>
+							<option value="340">Goron Mines Gor Amato Small Chest</option>
+							<option value="66">Goron Mines Gor Ebizo Chest</option>
+							<option value="259">Goron Mines Gor Ebizo Key Shard</option>
+							<option value="43">Goron Mines Gor Liggs Chest</option>
+							<option value="3">Goron Mines Gor Liggs Key Shard</option>
+							<option value="356">Goron Mines Magnet Maze Chest</option>
+							<option value="339">
+								Goron Mines Main Magnet Room Bottom Chest
+							</option>
+							<option value="255">
+								Goron Mines Main Magnet Room Top Chest
+							</option>
+							<option value="297">Goron Mines Outside Beamos Chest</option>
+							<option value="137">Goron Mines Outside Clawshot Chest</option>
+							<option value="155">Goron Mines Outside Underwater Chest</option>
+							<option value="172">Goron Springwater Rush</option>
+							<option value="425">Herding Goats Reward</option>
+							<option value="391">Hidden Village Poe</option>
+							<option value="142">Hyrule Castle Big Key Chest</option>
+							<option value="453">Hyrule Castle East Wing Balcony Chest</option>
+							<option value="152">
+								Hyrule Castle East Wing Boomerang Puzzle Chest
+							</option>
+							<option value="328">
+								Hyrule Castle Graveyard Grave Switch Room Back Left Chest
+							</option>
+							<option value="274">
+								Hyrule Castle Graveyard Grave Switch Room Front Left Chest
+							</option>
+							<option value="282">
+								Hyrule Castle Graveyard Grave Switch Room Right Chest
+							</option>
+							<option value="14">
+								Hyrule Castle Graveyard Owl Statue Chest
+							</option>
+							<option value="151">Hyrule Castle King Bulblin Key</option>
+							<option value="355">Hyrule Castle Lantern Staircase Chest</option>
+							<option value="25">
+								Hyrule Castle Main Hall Northeast Chest
+							</option>
+							<option value="177">
+								Hyrule Castle Main Hall Northwest Chest
+							</option>
+							<option value="109">
+								Hyrule Castle Main Hall Southwest Chest
+							</option>
+							<option value="263">
+								Hyrule Castle Southeast Balcony Tower Chest
+							</option>
+							<option value="248">
+								Hyrule Castle Treasure Room Eighth Small Chest
+							</option>
+							<option value="168">
+								Hyrule Castle Treasure Room Fifth Chest
+							</option>
+							<option value="181">
+								Hyrule Castle Treasure Room Fifth Small Chest
+							</option>
+							<option value="465">
+								Hyrule Castle Treasure Room First Chest
+							</option>
+							<option value="154">
+								Hyrule Castle Treasure Room First Small Chest
+							</option>
+							<option value="211">
+								Hyrule Castle Treasure Room Fourth Chest
+							</option>
+							<option value="100">
+								Hyrule Castle Treasure Room Fourth Small Chest
+							</option>
+							<option value="294">
+								Hyrule Castle Treasure Room Second Chest
+							</option>
+							<option value="93">
+								Hyrule Castle Treasure Room Second Small Chest
+							</option>
+							<option value="29">
+								Hyrule Castle Treasure Room Seventh Small Chest
+							</option>
+							<option value="264">
+								Hyrule Castle Treasure Room Sixth Small Chest
+							</option>
+							<option value="11">
+								Hyrule Castle Treasure Room Third Chest
+							</option>
+							<option value="254">
+								Hyrule Castle Treasure Room Third Small Chest
+							</option>
+							<option value="163">
+								Hyrule Castle West Courtyard Central Small Chest
+							</option>
+							<option value="128">
+								Hyrule Castle West Courtyard North Small Chest
+							</option>
+							<option value="126">
+								Hyrule Field Amphitheater Owl Statue Chest
+							</option>
+							<option value="303">
+								Hyrule Field Amphitheater Owl Statue Sky Character
+							</option>
+							<option value="74">Hyrule Field Amphitheater Poe</option>
+							<option value="27">Ilia Charm</option>
+							<option value="395">Ilia Memory Reward</option>
+							<option value="286">Isle of Riches Poe</option>
+							<option value="76">Iza Helping Hand</option>
+							<option value="336">Iza Raging Rapids Minigame</option>
+							<option value="57">Jovani 20 Poe Soul Reward</option>
+							<option value="474">Jovani 60 Poe Soul Reward</option>
+							<option value="301">Jovani House Poe</option>
+							<option value="433">Kakariko Gorge Double Clawshot Chest</option>
+							<option value="460">Kakariko Gorge Female Pill Bug</option>
+							<option value="326">Kakariko Gorge Male Pill Bug</option>
+							<option value="280">Kakariko Gorge Owl Statue Chest</option>
+							<option value="400">
+								Kakariko Gorge Owl Statue Sky Character
+							</option>
+							<option value="226">Kakariko Gorge Poe</option>
+							<option value="446">Kakariko Gorge Spire Heart Piece</option>
+							<option value="218">Kakariko Graveyard Golden Wolf</option>
+							<option value="352">Kakariko Graveyard Grave Poe</option>
+							<option value="305">Kakariko Graveyard Lantern Chest</option>
+							<option value="407">Kakariko Graveyard Male Ant</option>
+							<option value="161">Kakariko Graveyard Open Poe</option>
+							<option value="60">Kakariko Inn Chest</option>
+							<option value="49">
+								Kakariko Village Bomb Rock Spire Heart Piece
+							</option>
+							<option value="106">Kakariko Village Bomb Shop Poe</option>
+							<option value="324">Kakariko Village Female Ant</option>
+							<option value="101">Kakariko Village Malo Mart Hawkeye</option>
+							<option value="470">
+								Kakariko Village Malo Mart Hylian Shield
+							</option>
+							<option value="475">Kakariko Village Malo Mart Red Potion</option>
+							<option value="476">
+								Kakariko Village Malo Mart Wooden Shield
+							</option>
+							<option value="83">Kakariko Village Watchtower Poe</option>
+							<option value="149">Kakariko Watchtower Alcove Chest</option>
+							<option value="388">Kakariko Watchtower Chest</option>
+							<option value="438">Lake Hylia Alcove Poe</option>
+							<option value="176">Lake Hylia Bridge Bubble Grotto Chest</option>
+							<option value="135">Lake Hylia Bridge Cliff Chest</option>
+							<option value="108">Lake Hylia Bridge Cliff Poe</option>
+							<option value="312">Lake Hylia Bridge Female Mantis</option>
+							<option value="330">Lake Hylia Bridge Male Mantis</option>
+							<option value="414">Lake Hylia Bridge Owl Statue Chest</option>
+							<option value="417">
+								Lake Hylia Bridge Owl Statue Sky Character
+							</option>
+							<option value="94">Lake Hylia Bridge Vines Chest</option>
+							<option value="196">Lake Hylia Dock Poe</option>
+							<option value="197">Lake Hylia Shell Blade Grotto Chest</option>
+							<option value="30">Lake Hylia Tower Poe</option>
+							<option value="320">Lake Hylia Underwater Chest</option>
+							<option value="19">Lake Hylia Water Toadpoli Grotto Chest</option>
+							<option value="193">Lake Lantern Cave Eighth Chest</option>
+							<option value="156">Lake Lantern Cave Eleventh Chest</option>
+							<option value="421">Lake Lantern Cave End Lantern Chest</option>
+							<option value="138">Lake Lantern Cave Fifth Chest</option>
+							<option value="71">Lake Lantern Cave Final Poe</option>
+							<option value="386">Lake Lantern Cave First Chest</option>
+							<option value="99">Lake Lantern Cave First Poe</option>
+							<option value="233">Lake Lantern Cave Fourteenth Chest</option>
+							<option value="144">Lake Lantern Cave Fourth Chest</option>
+							<option value="148">Lake Lantern Cave Ninth Chest</option>
+							<option value="77">Lake Lantern Cave Second Chest</option>
+							<option value="232">Lake Lantern Cave Second Poe</option>
+							<option value="454">Lake Lantern Cave Seventh Chest</option>
+							<option value="429">Lake Lantern Cave Sixth Chest</option>
+							<option value="147">Lake Lantern Cave Tenth Chest</option>
+							<option value="333">Lake Lantern Cave Third Chest</option>
+							<option value="200">Lake Lantern Cave Thirteenth Chest</option>
+							<option value="236">Lake Lantern Cave Twelfth Chest</option>
+							<option value="468">
+								Lakebed Temple Before Deku Toad Alcove Chest
+							</option>
+							<option value="185">
+								Lakebed Temple Before Deku Toad Underwater Left Chest
+							</option>
+							<option value="447">
+								Lakebed Temple Before Deku Toad Underwater Right Chest
+							</option>
+							<option value="322">Lakebed Temple Big Key Chest</option>
+							<option value="188">Lakebed Temple Central Room Chest</option>
+							<option value="78">
+								Lakebed Temple Central Room Small Chest
+							</option>
+							<option value="416">
+								Lakebed Temple Central Room Spire Chest
+							</option>
+							<option value="419">Lakebed Temple Chandelier Chest</option>
+							<option value="195">Lakebed Temple Deku Toad Chest</option>
+							<option value="428">Lakebed Temple Dungeon Reward</option>
+							<option value="145">
+								Lakebed Temple East Lower Waterwheel Bridge Chest
+							</option>
+							<option value="41">
+								Lakebed Temple East Lower Waterwheel Stalactite Chest
+							</option>
+							<option value="73">
+								Lakebed Temple East Second Floor Southeast Chest
+							</option>
+							<option value="348">
+								Lakebed Temple East Second Floor Southwest Chest
+							</option>
+							<option value="300">
+								Lakebed Temple East Water Supply Clawshot Chest
+							</option>
+							<option value="308">
+								Lakebed Temple East Water Supply Small Chest
+							</option>
+							<option value="318">Lakebed Temple Lobby Left Chest</option>
+							<option value="132">Lakebed Temple Lobby Rear Chest</option>
+							<option value="33">
+								Lakebed Temple Morpheel Heart Container
+							</option>
+							<option value="377">Lakebed Temple Stalactite Room Chest</option>
+							<option value="411">
+								Lakebed Temple Underwater Maze Small Chest
+							</option>
+							<option value="68">Lakebed Temple West Lower Small Chest</option>
+							<option value="130">
+								Lakebed Temple West Second Floor Central Small Chest
+							</option>
+							<option value="240">
+								Lakebed Temple West Second Floor Northeast Chest
+							</option>
+							<option value="87">
+								Lakebed Temple West Second Floor Southeast Chest
+							</option>
+							<option value="217">
+								Lakebed Temple West Second Floor Southwest Underwater Chest
+							</option>
+							<option value="104">
+								Lakebed Temple West Water Supply Chest
+							</option>
+							<option value="316">
+								Lakebed Temple West Water Supply Small Chest
+							</option>
+							<option value="227">
+								Lanayru Field Behind Gate Underwater Chest
+							</option>
+							<option value="434">Lanayru Field Bridge Poe</option>
+							<option value="45">Lanayru Field Female Stag Beetle</option>
+							<option value="90">Lanayru Field Male Stag Beetle</option>
+							<option value="21">Lanayru Field Poe Grotto Left Poe</option>
+							<option value="439">Lanayru Field Poe Grotto Right Poe</option>
+							<option value="35">Lanayru Field Skulltula Grotto Chest</option>
+							<option value="335">Lanayru Field Spinner Track Chest</option>
+							<option value="367">Lanayru Ice Block Puzzle Cave Chest</option>
+							<option value="396">
+								Lanayru Spring Back Room Lantern Chest
+							</option>
+							<option value="62">Lanayru Spring Back Room Left Chest</option>
+							<option value="215">Lanayru Spring Back Room Right Chest</option>
+							<option value="455">
+								Lanayru Spring East Double Clawshot Chest
+							</option>
+							<option value="413">Lanayru Spring Underwater Left Chest</option>
+							<option value="205">Lanayru Spring Underwater Right Chest</option>
+							<option value="283">
+								Lanayru Spring West Double Clawshot Chest
+							</option>
+							<option value="79">Links Basement Chest</option>
+							<option value="291">Lost Woods Boulder Poe</option>
+							<option value="34">Lost Woods Lantern Chest</option>
+							<option value="160">Lost Woods Waterfall Poe</option>
+							<option value="363">North Castle Town Golden Wolf</option>
+							<option value="47">North Faron Woods Deku Baba Chest</option>
+							<option value="410">Ordon Cat Rescue</option>
+							<option value="39">Ordon Ranch Grotto Lantern Chest</option>
+							<option value="170">Ordon Shield</option>
+							<option value="24">Ordon Spring Golden Wolf</option>
+							<option value="293">Ordon Sword</option>
+							<option value="315">
+								Outside Arbiters Grounds Lantern Chest
+							</option>
+							<option value="124">Outside Arbiters Grounds Poe</option>
+							<option value="448">Outside Bulblin Camp Poe</option>
+							<option value="390">
+								Outside Lanayru Spring Left Statue Chest
+							</option>
+							<option value="450">
+								Outside Lanayru Spring Right Statue Chest
+							</option>
+							<option value="125">
+								Outside South Castle Town Double Clawshot Chasm Chest
+							</option>
+							<option value="464">
+								Outside South Castle Town Female Ladybug
+							</option>
+							<option value="246">
+								Outside South Castle Town Fountain Chest
+							</option>
+							<option value="209">Outside South Castle Town Golden Wolf</option>
+							<option value="56">Outside South Castle Town Male Ladybug</option>
+							<option value="457">Outside South Castle Town Poe</option>
+							<option value="257">
+								Outside South Castle Town Tektite Grotto Chest
+							</option>
+							<option value="175">
+								Outside South Castle Town Tightrope Chest
+							</option>
+							<option value="139">Palace of Twilight Big Key Chest</option>
+							<option value="442">
+								Palace of Twilight Central First Room Chest
+							</option>
+							<option value="153">
+								Palace of Twilight Central Outdoor Chest
+							</option>
+							<option value="123">
+								Palace of Twilight Central Tower Chest
+							</option>
+							<option value="202">Palace of Twilight Collect Both Sols</option>
+							<option value="471">
+								Palace of Twilight East Wing First Room East Alcove
+							</option>
+							<option value="406">
+								Palace of Twilight East Wing First Room North Small Chest
+							</option>
+							<option value="53">
+								Palace of Twilight East Wing First Room West Alcove
+							</option>
+							<option value="252">
+								Palace of Twilight East Wing First Room Zant Head Chest
+							</option>
+							<option value="105">
+								Palace of Twilight East Wing Second Room Northeast Chest
+							</option>
+							<option value="13">
+								Palace of Twilight East Wing Second Room Northwest Chest
+							</option>
+							<option value="327">
+								Palace of Twilight East Wing Second Room Southeast Chest
+							</option>
+							<option value="0">
+								Palace of Twilight East Wing Second Room Southwest Chest
+							</option>
+							<option value="242">
+								Palace of Twilight West Wing Chest Behind Wall of Darkness
+							</option>
+							<option value="398">
+								Palace of Twilight West Wing First Room Central Chest
+							</option>
+							<option value="373">
+								Palace of Twilight West Wing Second Room Central Chest
+							</option>
+							<option value="258">
+								Palace of Twilight West Wing Second Room Lower South Chest
+							</option>
+							<option value="117">
+								Palace of Twilight West Wing Second Room Southeast Chest
+							</option>
+							<option value="298">
+								Palace of Twilight Zant Heart Container
+							</option>
+							<option value="445">Plumm Fruit Balloon Minigame</option>
+							<option value="199">Renados Letter</option>
+							<option value="374">Rutelas Blessing</option>
+							<option value="290">
+								Sacred Grove Baba Serpent Grotto Chest
+							</option>
+							<option value="222">Sacred Grove Female Snail</option>
+							<option value="229">Sacred Grove Male Snail</option>
+							<option value="244">Sacred Grove Master Sword Poe</option>
+							<option value="32">Sacred Grove Past Owl Statue Chest</option>
+							<option value="478">Sacred Grove Pedestal Master Sword</option>
+							<option value="479">Sacred Grove Pedestal Shadow Crystal</option>
+							<option value="344">Sacred Grove Spinner Chest</option>
+							<option value="119">
+								Sacred Grove Temple of Time Owl Statue Poe
+							</option>
+							<option value="40">Sera Shop Slingshot</option>
+							<option value="166">Skybook From Impaz</option>
+							<option value="289">Snowboard Racing Prize</option>
+							<option value="385">Snowpeak Above Freezard Grotto Poe</option>
+							<option value="210">Snowpeak Blizzard Poe</option>
+							<option value="80">Snowpeak Cave Ice Lantern Chest</option>
+							<option value="376">Snowpeak Cave Ice Poe</option>
+							<option value="296">Snowpeak Freezard Grotto Chest</option>
+							<option value="456">Snowpeak Icy Summit Poe</option>
+							<option value="423">Snowpeak Poe Among Trees</option>
+							<option value="444">Snowpeak Ruins Ball and Chain</option>
+							<option value="334">
+								Snowpeak Ruins Blizzeta Heart Container
+							</option>
+							<option value="284">Snowpeak Ruins Broken Floor Chest</option>
+							<option value="427">Snowpeak Ruins Chapel Chest</option>
+							<option value="42">Snowpeak Ruins Chest After Darkhammer</option>
+							<option value="275">
+								Snowpeak Ruins Courtyard Central Chest
+							</option>
+							<option value="237">Snowpeak Ruins Dungeon Reward</option>
+							<option value="7">
+								Snowpeak Ruins East Courtyard Buried Chest
+							</option>
+							<option value="437">Snowpeak Ruins East Courtyard Chest</option>
+							<option value="178">Snowpeak Ruins Ice Room Poe</option>
+							<option value="96">Snowpeak Ruins Lobby Armor Poe</option>
+							<option value="194">Snowpeak Ruins Lobby Chandelier Chest</option>
+							<option value="8">Snowpeak Ruins Lobby East Armor Chest</option>
+							<option value="269">Snowpeak Ruins Lobby Poe</option>
+							<option value="267">Snowpeak Ruins Lobby West Armor Chest</option>
+							<option value="234">Snowpeak Ruins Mansion Map</option>
+							<option value="127">
+								Snowpeak Ruins Northeast Chandelier Chest
+							</option>
+							<option value="165">Snowpeak Ruins Ordon Pumpkin Chest</option>
+							<option value="351">
+								Snowpeak Ruins West Cannon Room Central Chest
+							</option>
+							<option value="412">
+								Snowpeak Ruins West Cannon Room Corner Chest
+							</option>
+							<option value="249">
+								Snowpeak Ruins West Courtyard Buried Chest
+							</option>
+							<option value="443">
+								Snowpeak Ruins Wooden Beam Central Chest
+							</option>
+							<option value="272">
+								Snowpeak Ruins Wooden Beam Chandelier Chest
+							</option>
+							<option value="467">
+								Snowpeak Ruins Wooden Beam Northwest Chest
+							</option>
+							<option value="86">South Faron Cave Chest</option>
+							<option value="167">STAR Prize 1</option>
+							<option value="360">STAR Prize 2</option>
+							<option value="415">Talo Sharpshooting</option>
+							<option value="466">Telma Invoice</option>
+							<option value="350">
+								Temple of Time Armogohma Heart Container
+							</option>
+							<option value="349">
+								Temple of Time Armos Antechamber East Chest
+							</option>
+							<option value="321">
+								Temple of Time Armos Antechamber North Chest
+							</option>
+							<option value="378">
+								Temple of Time Armos Antechamber Statue Chest
+							</option>
+							<option value="214">Temple of Time Big Key Chest</option>
+							<option value="422">Temple of Time Chest Before Darknut</option>
+							<option value="88">Temple of Time Darknut Chest</option>
+							<option value="23">Temple of Time Dungeon Reward</option>
+							<option value="245">
+								Temple of Time First Staircase Armos Chest
+							</option>
+							<option value="189">
+								Temple of Time First Staircase Gohma Gate Chest
+							</option>
+							<option value="190">
+								Temple of Time First Staircase Window Chest
+							</option>
+							<option value="332">
+								Temple of Time Floor Switch Puzzle Room Upper Chest
+							</option>
+							<option value="381">Temple of Time Gilloutine Chest</option>
+							<option value="72">Temple of Time Lobby Lantern Chest</option>
+							<option value="143">
+								Temple of Time Moving Wall Beamos Room Chest
+							</option>
+							<option value="204">
+								Temple of Time Moving Wall Dinalfos Room Chest
+							</option>
+							<option value="186">Temple of Time Poe Above Scales</option>
+							<option value="325">Temple of Time Poe Behind Gate</option>
+							<option value="458">Temple of Time Scales Gohma Chest</option>
+							<option value="408">Temple of Time Scales Upper Chest</option>
+							<option value="102">Uli Cradle Delivery</option>
+							<option value="203">Upper Zoras River Female Dragonfly</option>
+							<option value="451">Upper Zoras River Poe</option>
+							<option value="221">West Hyrule Field Female Butterfly</option>
+							<option value="134">West Hyrule Field Golden Wolf</option>
+							<option value="58">
+								West Hyrule Field Helmasaur Grotto Chest
+							</option>
+							<option value="150">West Hyrule Field Male Butterfly</option>
+							<option value="435">Wooden Statue</option>
+							<option value="110">Wooden Sword Chest</option>
+							<option value="4">Wrestling With Bo</option>
+							<option value="51">Zoras Domain Chest Behind Waterfall</option>
+							<option value="46">
+								Zoras Domain Chest By Mother and Child Isles
+							</option>
+							<option value="420">
+								Zoras Domain Extinguish All Torches Chest
+							</option>
+							<option value="372">Zoras Domain Light All Torches Chest</option>
+							<option value="16">Zoras Domain Male Dragonfly</option>
+							<option value="169">
+								Zoras Domain Mother and Child Isle Poe
+							</option>
+							<option value="59">Zoras Domain Underwater Goron</option>
+							<option value="341">Zoras Domain Waterfall Poe</option></select
+						><span
+							class="select2 select2-container select2-container--default"
+							dir="ltr"
+							data-select2-id="select2-data-1-t8m9"
+							style="width: auto"
+							><span class="selection"
+								><span
+									class="select2-selection select2-selection--single"
+									role="combobox"
+									aria-haspopup="true"
+									aria-expanded="false"
+									tabindex="0"
+									aria-disabled="false"
+									aria-labelledby="select2-plandoCheckSelect-container"
+									aria-controls="select2-plandoCheckSelect-container"
+									><span
+										class="select2-selection__rendered"
+										id="select2-plandoCheckSelect-container"
+										role="textbox"
+										aria-readonly="true"
+										title="Agitha Female Ant Reward"
+										>Agitha Female Ant Reward</span
+									><span class="select2-selection__arrow" role="presentation"
+										><b role="presentation"></b></span></span></span
+							><span class="dropdown-wrapper" aria-hidden="true"></span
+						></span>
+						<select
+							id="plandoItemSelect"
+							data-select2-id="select2-data-plandoItemSelect"
+							tabindex="-1"
+							class="select2-hidden-accessible"
+							aria-hidden="true"
+						>
+							<optgroup label="Progression Items">
+								<option value="50" data-select2-id="select2-data-4-tlkr">
+									Shadow_Crystal
+								</option>
+								<option value="63">Progressive_Sword</option>
+								<option value="145">Asheis_Sketch</option>
+								<option value="144">Aurus_Memo</option>
+								<option value="66">Ball_and_Chain</option>
+								<option value="64">Boomerang</option>
+								<option value="81">Filled_Bomb_Bag</option>
+								<option value="69">Iron_Boots</option>
+								<option value="72">Lantern</option>
+								<option value="67">Progressive_Bow</option>
+								<option value="68">Progressive_Clawshot</option>
+								<option value="70">Progressive_Dominion_Rod</option>
+								<option value="74">Progressive_Fishing_Rod</option>
+								<option value="233">Progressive_Sky_Book</option>
+								<option value="75">Slingshot</option>
+								<option value="65">Spinner</option>
+								<option value="49">Zora_Armor</option>
+							</optgroup>
+							<optgroup label="Dungeon Rewards">
+								<option value="216">Progressive_Fused_Shadow</option>
+								<option value="165">Progressive_Mirror_Shard</option>
+							</optgroup>
+							<optgroup label="Small Keys">
+								<option value="133">Forest_Temple_Small_Key</option>
+								<option value="134">Goron_Mines_Small_Key</option>
+								<option value="135">Lakebed_Temple_Small_Key</option>
+								<option value="136">Arbiters_Grounds_Small_Key</option>
+								<option value="137">Snowpeak_Ruins_Small_Key</option>
+								<option value="244">Snowpeak_Ruins_Ordon_Pumpkin</option>
+								<option value="245">Snowpeak_Ruins_Ordon_Goat_Cheese</option>
+								<option value="138">Temple_of_Time_Small_Key</option>
+								<option value="139">City_in_The_Sky_Small_Key</option>
+								<option value="140">Palace_of_Twilight_Small_Key</option>
+								<option value="141">Hyrule_Castle_Small_Key</option>
+								<option value="238">North_Faron_Woods_Gate_Key</option>
+								<option value="243">Gate_Keys</option>
+								<option value="142">Gerudo_Desert_Bulblin_Camp_Key</option>
+							</optgroup>
+							<optgroup label="Big Keys">
+								<option value="146">Forest_Temple_Big_Key</option>
+								<option value="249">Goron_Mines_Key_Shard</option>
+								<option value="147">Lakebed_Temple_Big_Key</option>
+								<option value="148">Arbiters_Grounds_Big_Key</option>
+								<option value="246">Snowpeak_Ruins_Bedroom_Key</option>
+								<option value="149">Temple_of_Time_Big_Key</option>
+								<option value="150">City_in_The_Sky_Big_Key</option>
+								<option value="151">Palace_of_Twilight_Big_Key</option>
+								<option value="152">Hyrule_Castle_Big_Key</option>
+							</optgroup>
+							<optgroup label="Compasses">
+								<option value="153">Forest_Temple_Compass</option>
+								<option value="154">Goron_Mines_Compass</option>
+								<option value="155">Lakebed_Temple_Compass</option>
+								<option value="168">Arbiters_Grounds_Compass</option>
+								<option value="169">Snowpeak_Ruins_Compass</option>
+								<option value="170">Temple_of_Time_Compass</option>
+								<option value="171">City_in_The_Sky_Compass</option>
+								<option value="172">Palace_of_Twilight_Compass</option>
+								<option value="173">Hyrule_Castle_Compass</option>
+							</optgroup>
+							<optgroup label="Dungeon Maps">
+								<option value="182">Forest_Temple_Dungeon_Map</option>
+								<option value="183">Goron_Mines_Dungeon_Map</option>
+								<option value="184">Lakebed_Temple_Dungeon_Map</option>
+								<option value="185">Arbiters_Grounds_Dungeon_Map</option>
+								<option value="186">Snowpeak_Ruins_Dungeon_Map</option>
+								<option value="187">Temple_of_Time_Dungeon_Map</option>
+								<option value="188">City_in_The_Sky_Dungeon_Map</option>
+								<option value="189">Palace_of_Twilight_Dungeon_Map</option>
+								<option value="190">Hyrule_Castle_Dungeon_Map</option>
+							</optgroup>
+							<optgroup label="Golden Bugs">
+								<option value="192">Male_Beetle</option>
+								<option value="193">Female_Beetle</option>
+								<option value="194">Male_Butterfly</option>
+								<option value="195">Female_Butterfly</option>
+								<option value="196">Male_Stag_Beetle</option>
+								<option value="197">Female_Stag_Beetle</option>
+								<option value="198">Male_Grasshopper</option>
+								<option value="199">Female_Grasshopper</option>
+								<option value="200">Male_Phasmid</option>
+								<option value="201">Female_Phasmid</option>
+								<option value="202">Male_Pill_Bug</option>
+								<option value="203">Female_Pill_Bug</option>
+								<option value="204">Male_Mantis</option>
+								<option value="205">Female_Mantis</option>
+								<option value="206">Male_Ladybug</option>
+								<option value="207">Female_Ladybug</option>
+								<option value="208">Male_Snail</option>
+								<option value="209">Female_Snail</option>
+								<option value="210">Male_Dragonfly</option>
+								<option value="211">Female_Dragonfly</option>
+								<option value="212">Male_Ant</option>
+								<option value="213">Female_Ant</option>
+								<option value="214">Male_Dayfly</option>
+								<option value="215">Female_Dayfly</option>
+							</optgroup>
+							<optgroup label="Rupees">
+								<option value="1">Green_Rupee</option>
+								<option value="2">Blue_Rupee</option>
+								<option value="3">Yellow_Rupee</option>
+								<option value="4">Red_Rupee</option>
+								<option value="5">Purple_Rupee</option>
+								<option value="6">Orange_Rupee</option>
+								<option value="7">Silver_Rupee</option>
+								<option value="237">Purple_Rupee_Links_House</option>
+							</optgroup>
+							<optgroup label="Ammo">
+								<option value="10">Bombs_5</option>
+								<option value="11">Bombs_10</option>
+								<option value="12">Bombs_20</option>
+								<option value="13">Bombs_30</option>
+								<option value="14">Arrows_10</option>
+								<option value="15">Arrows_20</option>
+								<option value="16">Arrows_30</option>
+								<option value="18">Seeds_50</option>
+								<option value="22">Water_Bombs_5</option>
+								<option value="23">Water_Bombs_10</option>
+								<option value="24">Water_Bombs_15</option>
+								<option value="26">Bomblings_5</option>
+								<option value="27">Bomblings_10</option>
+							</optgroup>
+							<optgroup label="Misc">
+								<option value="42">Ordon_Shield</option>
+								<option value="43">Wooden_Shield</option>
+								<option value="44">Hylian_Shield</option>
+								<option value="48">Magic_Armor</option>
+								<option value="224">Poe_Soul</option>
+								<option value="33">Piece_of_Heart</option>
+								<option value="34">Heart_Container</option>
+								<option value="225">Progressive_Hidden_Skill</option>
+								<option value="53">Progressive_Wallet</option>
+								<option value="79">Giant_Bomb_Bag</option>
+								<option value="96">Empty_Bottle</option>
+								<option value="101">Sera_Bottle</option>
+								<option value="117">Jovani_Bottle</option>
+								<option value="157">Coro_Bottle</option>
+								<option value="62">Hawkeye</option>
+								<option value="132">Horse_Call</option>
+								<option value="19">Foolish_Item</option>
+							</optgroup></select
+						><span
+							class="select2 select2-container select2-container--default"
+							dir="ltr"
+							data-select2-id="select2-data-3-xdxe"
+							style="width: auto"
+							><span class="selection"
+								><span
+									class="select2-selection select2-selection--single"
+									role="combobox"
+									aria-haspopup="true"
+									aria-expanded="false"
+									tabindex="0"
+									aria-disabled="false"
+									aria-labelledby="select2-plandoItemSelect-container"
+									aria-controls="select2-plandoItemSelect-container"
+									><span
+										class="select2-selection__rendered"
+										id="select2-plandoItemSelect-container"
+										role="textbox"
+										aria-readonly="true"
+										title="Shadow_Crystal"
+										>Shadow_Crystal</span
+									><span class="select2-selection__arrow" role="presentation"
+										><b role="presentation"></b></span></span></span
+							><span class="dropdown-wrapper" aria-hidden="true"></span
+						></span>
+						<button
+							id="plandoBtnAdd"
+							type="button"
+							data-tooltip-text="Creates or updates an entry which specifies the contents of a check."
+							data-tooltip-position="left"
+							class="plandoEntryRowBtn"
+						>
+							Apply
+						</button>
+					</div>
+					<ul
+						id="basePlandoListbox"
+						multiple="multiple"
+						size="10"
+						width="20%"
+					></ul>
+				</fieldset>
+			</div>
+
+			<div id="legacyTab" class="tabcontent">
+				<div style="max-width: 500px; margin: 24px">
+					This settings will be removed from here in the future. After
+					generating the seed data from shared settings, individual players will
+					pick these settings on a different page.
+				</div>
+				<fieldset id="logicSettingsFieldset">
+					<label for="gameRegionFieldset">Game Region:</label>
+					<select name="Game Region Fieldset" id="gameRegionFieldset">
+						<option value="0">NTSC (US)</option>
+						<option value="1">PAL (EUR)</option>
+						<option value="2">JP (JAP)</option>
+						<option value="3" disabled="">Wii NTSC 1.0 (US)</option>
+						<option value="4" disabled="">Wii NTSC 1.2 (US)</option>
+						<option value="5" disabled="">Wii PAL (EUR)</option>
+						<option value="6" disabled="">Wii JP (JAP)</option>
+					</select>
+					<br />
+					<label for="seedNumberFieldset">Seed Number:</label>
+					<select name="Seed Number Fieldset" id="seedNumberFieldset">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+					</select>
+				</fieldset>
+			</div>
+			<br />
+
+			<div class="settingsStringLabel">Settings String</div>
+			<div style="display: flex; align-items: center; min-width: 0">
+				<button
+					id="editSettingsBtn"
+					class="settingsEditBtnPos css-1egpgfe"
+					tabindex="0"
+					type="button"
+					aria-label="delete"
+				>
+					<svg
+						class="css-vubbuv"
+						focusable="false"
+						aria-hidden="true"
+						viewBox="0 0 24 24"
+					>
+						<path
+							d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+						></path>
+					</svg>
+				</button>
+				<span id="combinedSettingsString" class="settingsStringValue"
+					>5sPF9m0000000G8___m</span
+				>
+			</div>
+
+			<!-- <div>SSettings (display only):</div>
+      <div id="newSettingsDisplay" class="settingsStringValue"></div> -->
+			<div class="labelValueGroup" style="display: none">
+				<div class="settingsStringLabel">
+					SSettings (locked in during step1):
+				</div>
+				<div id="newSettingsDisplay" class="settingsStringValue"></div>
+			</div>
+
+			<!-- <div>USettings (display only):</div>
+      <div id="uSettingsDisplay" class="settingsStringValue"></div> -->
+			<div class="labelValueGroup" style="display: none">
+				<div class="settingsStringLabel">USettings (editable in step2):</div>
+				<div id="uSettingsDisplay" class="settingsStringValue"></div>
+			</div>
+
+			<!-- <div>Legacy Settings String:</div>
+      <div id="settingsStringTextbox" class="settingsStringValue"></div> -->
+			<div class="labelValueGroup" style="display: none">
+				<div class="settingsStringLabel">Legacy Settings String:</div>
+				<div id="settingsStringTextbox" class="settingsStringValue">
+					QVFZUUFBQUFBRDc3N1FBQUFBQQ==
+				</div>
+			</div>
+
+			<!-- <div>
+          <label style="display:block;" for="settingsStringTextbox">Legacy Settings String:</label>
+          <input type="text" id="settingsStringTextbox" name="settingsStringTextBox" style="min-width: 30em;width: 100%;">
+        </div> -->
+			<div>
+				<label style="display: block" for="seed" class="settingsStringLabel"
+					>Seed</label
+				>
+				<input
+					type="text"
+					id="seed"
+					name="seed"
+					style="min-width: 30em; width: 100%; max-width: 300px"
+					autocomplete="off"
+					maxlength="128"
+				/>
+			</div>
+
+			<!-- <div>
+          <label style="display:block;" for="uSettingsString">USettings (for display):</label>
+          <input type="text" id="uSettingsString" name="uSettingsString" style="min-width: 30em;width: 100%;">
+        </div> -->
+			<br />
+
+			<!-- <input id="importSettingsStringButton" value="Import/Apply" type="button"> -->
+			<button
+				id="importSettingsStringButton"
+				class="primaryButton"
+				style="display: none"
+			>
+				Import/Apply
+			</button>
+
+			<br />
+			<!-- <input id="generateSeedButton" name="generateSeedButton" value="Generate" type="submit" > -->
+			<button
+				id="generateSeed"
+				type="button"
+				class="primaryButton"
+				data-tooltip-text="Generates a seed based on the settings string.
+"
+			>
+				Generate
+			</button>
+			<br />
+			<br />
+			<button
+				id="generateRaceSeed"
+				type="button"
+				class="primaryButton"
+				data-tooltip-text="Generates an encrypted seed with a locked spoiler log. Contact an admin to get the spoiler log unlocked.
+"
+			>
+				Generate Race Seed
+			</button>
+
+			<!-- <button class="css-1egpgfe" tabindex="0" type="button" aria-label="delete">
+          <svg class="css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+          </svg>
+        </button> -->
+		</div>
+		<div class="blackbg">
+			<div style="font-size: 24px; padding-bottom: 20px">
+				Randomizer Downloads
+			</div>
+			<hr />
+			<br />
+			<table>
+				<tbody>
+					<tr>
+						<td class="rBor">
+							<a
+								target="_blank"
+								href="https://wiki.tprandomizer.com/images/d/d8/Randomizer-1.2.0.us.gci"
+								download=""
+								><img class="blackbor flag" src="img/usa.jpg"
+							/></a>
+							<br />
+							NTSC (US)
+						</td>
+						<td class="rBor">
+							<a
+								target="_blank"
+								href="https://wiki.tprandomizer.com/images/0/06/Randomizer-1.2.0.eu.gci"
+								download=""
+								><img class="blackbor flag" src="/img/eur.jpg"
+							/></a>
+							<br />
+							PAL (EU)
+						</td>
+						<td class="rBor">
+							<a
+								target="_blank"
+								href="https://wiki.tprandomizer.com/images/5/5c/Randomizer-1.2.0.jp.gci"
+								download=""
+								><img class="blackbor flag" src="/img/jpn.jpg"
+							/></a>
+							<br />
+							JP (JAP)
+						</td>
+						<td style="text-align: center">
+							<a
+								target="_blank"
+								href="https://tprandomizer.com/downloads/relpatch.zip"
+								download=""
+								><img class="blackbor flag" src="/img/folder.png"
+							/></a>
+							<br />
+							ISO Patch Files
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<div class="footerText" style="text-align: center">
+				Logo and background image are property of Nintendo. Copyright ©
+				Nintendo, 1998-2023.<br />
+				Based off the original website design by
+				<a
+					target="_blank"
+					href="https://github.com/Luneyes"
+					style="color: #d62013"
+					>Luneyes</a
+				>. Generator created by
+				<a
+					target="_blank"
+					href="https://github.com/Lunarsoap5"
+					style="color: #d62013"
+					>Lunar Soap</a
+				>
+				and
+				<a
+					target="_blank"
+					href="https://github.com/icogn"
+					style="color: #d62013"
+					>Isaac</a
+				>. Logo edited by
+				<a
+					target="_blank"
+					href="https://twitter.com/MelonSpeedruns"
+					style="color: #d62013"
+					>MelonSpeedruns</a
+				>
+				<br />
+				Generator Version
+				<span id="devFooterText" class="devFooterText">1.2.0 d909fdac3357</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Edit Settings Modal -->
+	<div id="myModal" class="modal" style="display: none">
+		<div class="modal-content">
+			<span class="modal-close">×</span>
+			<div class="modalTitle">Import Settings</div>
+
+			<div class="labelValueGroup">
+				<div class="settingsStringLabel settingsStringLabelLight">
+					Current Settings
+				</div>
+				<div
+					id="modalCurrentSettings"
+					class="settingsStringValue settingsStringValueLight"
+				>
+					asdhfoi
+				</div>
+			</div>
+
+			<div class="settingsStringLabel settingsStringLabelLight">
+				New Settings
+			</div>
+			<input
+				id="modalSettingsStringInput"
+				type="text"
+				class="modalSettingsStringInput"
+			/>
+
+			<div
+				id="modalFieldCopiedText"
+				class="fieldUnderneathText"
+				style="display: none"
+			>
+				Copied.
+			</div>
+			<div
+				id="modalFieldError"
+				class="fieldErrorText"
+				style="display: none"
+			></div>
+
+			<div class="modalButtonsWrapper">
+				<button id="modalImport" type="button">Import</button>
+				<button id="modalCancel" type="button">Cancel</button>
+				<button id="modalCopy" type="button" style="margin-right: auto">
+					Copy settings
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="modal2Bg" class="modal-dialog-bg" style="display: none"></div>
+	<!-- <div id="generatingModal" class="isOpen quantumWizDialogBackground"> -->
+	<div
+		id="generatingModal"
+		class="quantumWizDialogBackground"
+		style="display: none"
+	>
+		<div
+			class="quantumWizDialogLayout boqDrivesharedialogDialogcontainerRemovePadding"
+		>
+			<div class="quantumWizDialogBackgroundTop"></div>
+			<div
+				class="boqDrivesharedialogDialogcontainerFullWidth quantumWizDialogEl isOpen"
+				role="dialog"
+				tabindex="0"
+			>
+				<div
+					tabindex="0"
+					aria-hidden="true"
+					class="focusSentinel"
+					jsaction="focus:.CLIENT"
+				></div>
+
+				<span>
+					<div tabindex="-1" class="boqDrivesharedialogDialogsShareContainer">
+						<div class="boqDrivesharedialogDialogsShareDialogWrapper">
+							<div class="boqDrivesharedialogDialogsShareDialog" role="dialog">
+								<div class="boqDrivesharedialogDialogsShareCardContainer">
+									<div
+										class="boqDrivesharedialogCommonIdomcardCardContainer TransformOriginBottom"
+									>
+										<div
+											class="boqDrivesharedialogCommonAnimatedfadeParentContainer"
+										>
+											<div
+												class="boqDrivesharedialogCommonAnimatedfadeContainer boqDrivesharedialogCommonIdomcardCardFade"
+											>
+												<div
+													class="mdc-card GmCard GmCardElevatedDarkTheme boqDrivesharedialogCommonIdomcardCard"
+												>
+													<!-- Content -->
+													<div class="dialog2Content">
+														<div
+															class="boqDrivesharedialogCommonTitlebarTitleBar"
+														>
+															<div class="Heading">
+																<div class="LeftSlotAndTitle">
+																	<div
+																		id="generatingModalTitle"
+																		class="Title"
+																	></div>
+																</div>
+															</div>
+														</div>
+
+														<div class="dialog2ContentArea">
+															<div
+																id="generatingProgressRow"
+																style="display: flex; align-items: center"
+															>
+																<div
+																	class="spinner-border"
+																	role="status"
+																	style="margin-right: 24px"
+																></div>
+																<div>This might take a few seconds.</div>
+															</div>
+
+															<div
+																id="generatingError"
+																class="errorTextColor"
+																style="white-space: pre-wrap"
+															></div>
+															<div
+																id="bodyMsg"
+																style="white-space: pre-wrap"
+															></div>
+															<div id="deleteRequestSection">
+																<br />
+																<div style="white-space: pre-wrap">
+																	Alternatively, you can
+																	<span
+																		id="deleteRequest"
+																		class="deleteRequestText"
+																		role="button"
+																		>Delete</span
+																	>
+																	the previous request.
+																</div>
+															</div>
+															<div
+																id="ongoingRequestBtnRow"
+																class="modalButtonsWrapper"
+																style="display: none"
+															>
+																<button
+																	id="viewOngoingRequestBtn"
+																	type="button"
+																	class="primaryButton primaryButtonNoShadow"
+																	style="margin-left: auto"
+																>
+																	View
+																</button>
+																<button
+																	id="hideOngoingRequestBtn"
+																	type="button"
+																>
+																	Cancel
+																</button>
+															</div>
+															<div
+																id="doneBtnRow"
+																class="modalButtonsWrapper modalButtonsWrapperSmaller"
+															>
+																<button
+																	id="generatingModalDoneBtn"
+																	type="button"
+																	class="primaryButton primaryButtonNoShadow"
+																>
+																	Done
+																</button>
+															</div>
+														</div>
+													</div>
+													<!-- End Content -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</span>
+
+				<div
+					tabindex="0"
+					aria-hidden="true"
+					class="focusSentinel"
+					jsaction="focus:.CLIENT"
+				></div>
+			</div>
+			<div class="quantumWizDialogBackgroundBottom"></div>
+		</div>
+	</div>
+
+	<script src="/script.js"></script>
+	<script src="/js/tooltip.js"></script>
+</body>

@@ -1,0 +1,1042 @@
+{
+    "requirements": [
+        [
+            "Male_Stag_Beetle",
+            "state.has(\"Male Stag Beetle\", player)"
+        ],
+        [
+            "CanDefeatMorpheel",
+            "can_defeat_Morpheel(state, player)"
+        ],
+        [
+            "canLaunchBombs",
+            "can_launch_bombs(state, player)"
+        ],
+        [
+            "CanDefeatArmos",
+            "can_defeat_Armos(state, player)"
+        ],
+        [
+            "Setting.skipArbitersEntrance equals True",
+            "state._tp_skip_arbiters_entrance(player)"
+        ],
+        [
+            "Room.Lower_Kakariko_Village",
+            "state.can_reach_region(\"Lower Kakariko Village\", player)"
+        ],
+        [
+            "Setting.faronTwilightCleared equals False",
+            "state._tp_faron_twilight_cleared(player)"
+        ],
+        [
+            "Room.Kakariko_Renados_Sanctuary",
+            "state.can_reach_region(\"Kakariko Renados Sanctuary\", player)"
+        ],
+        [
+            "hasBombs",
+            "has_bombs(state, player)"
+        ],
+        [
+            "Poe_Soul, 10",
+            "state.has(\"Poe Soul\", player, 10)"
+        ],
+        [
+            "Room.Outside_Castle_Town_West_Grotto_Ledge",
+            "state.can_reach_region(\"Outside Castle Town West Grotto Ledge\", player, player)"
+        ],
+        [
+            "CanDefeatArgorok",
+            "can_defeat_Argorok(state, player)"
+        ],
+        [
+            "CanDefeatDangoro",
+            "can_defeat_Dangoro(state, player)"
+        ],
+        [
+            "canBurnWebs",
+            "can_burn_webs(state, player)"
+        ],
+        [
+            "Zora_Armor",
+            "state.has(\"Zora Armor\", player)"
+        ],
+        [
+            "CanDefeatBomskit",
+            "can_defeat_Bomskit(state, player)"
+        ],
+        [
+            "Lantern",
+            "state.has(\"Lantern\", player)"
+        ],
+        [
+            "Female_Phasmid",
+            "state.has(\"Female Phasmid\", player)"
+        ],
+        [
+            "canKnockDownHCPainting",
+            "can_knock_down_hc_painting(state, player)"
+        ],
+        [
+            "CanDefeatFreezard",
+            "can_defeat_Freezard(state, player)"
+        ],
+        [
+            "Lakebed_Temple_Small_Key,1",
+            "state.has(\"Lakebed Temple Small Key\", player, 1)"
+        ],
+        [
+            "CanDefeatBulblin",
+            "can_defeat_Bulblin(state, player)"
+        ],
+        [
+            "CanDefeatBubble",
+            "can_defeat_Bubble(state, player)"
+        ],
+        [
+            "CanChangeTime",
+            "can_change_time(state, player)"
+        ],
+        [
+            "CanDefeatKingBulblinCastle",
+            "can_defeat_KingBulblinCastle(state, player)"
+        ],
+        [
+            "canCompleteSnowpeakRuins",
+            "can_complete_snowpeak_ruins(state, player)"
+        ],
+        [
+            "Room.Upper_Zoras_River",
+            "state.can_reach_region(\"Upper Zoras River\", player)"
+        ],
+        [
+            "Goron_Mines_Small_Key, 1",
+            "state.has(\"Goron Mines Small Key\", player, 1)"
+        ],
+        [
+            "Snowpeak_Ruins_Small_Key, 1",
+            "state.has(\"Snowpeak Ruins Small Key\", player, 1)"
+        ],
+        [
+            "Female_Butterfly",
+            "state.has(\"Female Butterfly\", player)"
+        ],
+        [
+            "Male_Mantis",
+            "state.has(\"Male Mantis\", player)"
+        ],
+        [
+            "Room.Death_Mountain_Trail",
+            "state.can_reach_region(\"Death Mountain Trail\", player)"
+        ],
+        [
+            "canCompleteTempleofTime",
+            "can_complete_temple_of_time(state, player)"
+        ],
+        [
+            "CanDefeatWalltula",
+            "can_defeat_Walltula(state, player)"
+        ],
+        [
+            "Progressive_Bow, 1",
+            "state.has(\"Progressive Hero's Bow\", player, 1)"
+        ],
+        [
+            "Palace_of_Twilight_Small_Key, 1",
+            "state.has(\"Palace of Twilight Small Key\", player, 1)"
+        ],
+        [
+            "Setting.barrenDungeons equals False",
+            "not state._tp_barren_dungeons(player)"
+        ],
+        [
+            "CanDefeatHelmasaur",
+            "can_defeat_Helmasaur(state, player)"
+        ],
+        [
+            "CanDefeatFyrus",
+            "can_defeat_Fyrus(state, player)"
+        ],
+        [
+            "Ilias_Charm",
+            "state.has(\"Ilia's Charm\", player)"
+        ],
+        [
+            "Ball_and_Chain",
+            "state.has(\"Ball and Chain\", player)"
+        ],
+        [
+            "CanDefeatChu",
+            "can_defeat_Chu(state, player)"
+        ],
+        [
+            "Renados_Letter",
+            "state.has(\"Renado's Letter\", player)"
+        ],
+        [
+            "Setting.bonksDoDamage equals False",
+            "not state._tp_bonks_do_damage(player)"
+        ],
+        [
+            "Snowpeak_Ruins_Ordon_Goat_Cheese",
+            "state.has(\"Ordon Goat Cheese\", player)"
+        ],
+        [
+            "Shadow_Crystal",
+            "state.has(\"Shadow Crystal\", player)"
+        ],
+        [
+            "CanDefeatDiababa",
+            "can_defeat_Diababa(state, player)"
+        ],
+        [
+            "Male_Dragonfly",
+            "state.has(\"Male Dragonfly\", player)"
+        ],
+        [
+            "hasRangedItem",
+            "has_ranged_item(state, player)"
+        ],
+        [
+            "true",
+            "True"
+        ],
+        [
+            "Female_Ant",
+            "state.has(\"Female Ant\", player)"
+        ],
+        [
+            "Male_Phasmid",
+            "state.has(\"Male Phasmid\", player)"
+        ],
+        [
+            "HasDamagingItem",
+            "has_damaging_item(state, player)"
+        ],
+        [
+            "CanUseBottledFairies",
+            "can_use_bottled_fairies(state, player)"
+        ],
+        [
+            "CanDefeatWaterToadpoli",
+            "can_defeat_WaterToadpoli(state, player)"
+        ],
+        [
+            "Room.Fishing_Hole_House",
+            "state.can_reach_region(\"Fishing Hole House\", player)"
+        ],
+        [
+            "CanDefeatFireBubble",
+            "can_defeat_FireBubble(state, player)"
+        ],
+        [
+            "Female_Dayfly",
+            "state.has(\"Female Dayfly\", player)"
+        ],
+        [
+            "Male_Dayfly",
+            "state.has(\"Male Dayfly\", player)"
+        ],
+        [
+            "CanDefeatIceBubble",
+            "can_defeat_IceBubble(state, player)"
+        ],
+        [
+            "CanDefeatShellBlade",
+            "can_defeat_ShellBlade(state, player)"
+        ],
+        [
+            "CanDefeatShadowBeast",
+            "can_defeat_ShadowBeast(state, player)"
+        ],
+        [
+            "Room.Kakariko_Malo_Mart",
+            "state.can_reach_region(\"Kakariko Malo Mart\", player)"
+        ],
+        [
+            "CanCompleteLanayruTwilight",
+            "can_complete_lanayru_twilight(state, player)"
+        ],
+        [
+            "Male_Beetle",
+            "state.has(\"Male Beetle\", player)"
+        ],
+        [
+            "CanUseWaterBombs",
+            "can_use_water_bombs(state, player)"
+        ],
+        [
+            "CanDefeatLizalfos",
+            "can_defeat_Lizalfos(state, player)"
+        ],
+        [
+            "Setting.totEntrance equals OpenGrove",
+            "state._tp_tot_entrance(player) == TotEntrance.option_open_grove"
+        ],
+        [
+            "Room.Castle_Town_Doctors_Office_Lower",
+            "state.can_reach_region(\"Castle Town Doctors Office Lower\", player)"
+        ],
+        [
+            "CanDefeatTektite",
+            "can_defeat_Tektite(state, player)"
+        ],
+        [
+            "Male_Butterfly",
+            "state.has(\"Male Butterfly\", player)"
+        ],
+        [
+            "CanDefeatDekuToad",
+            "can_defeat_DekuToad(state, player)"
+        ],
+        [
+            "CanDefeatChilfos",
+            "can_defeat_Chilfos(state, player)"
+        ],
+        [
+            "CanDefeatOok",
+            "can_defeat_Ook(state, player)"
+        ],
+        [
+            "CanCompleteEldinTwilight",
+            "can_complete_eldin_twilight(state, player)"
+        ],
+        [
+            "Setting.transformAnywhere equals True",
+            "state._tp_transform_anywhere(player)"
+        ],
+        [
+            "Setting.smallKeySettings equals Vanilla",
+            "state._tp_small_key_settings(player) == SmallKeySettings.option_vanilla"
+        ],
+        [
+            "CanCompleteAllTwilight",
+            "can_complete_all_twilight(state, player)"
+        ],
+        [
+            "Setting.damageMagnification not_equal OHKO",
+            "state._tp_damage_magnification(player) != DamageMagnification.option_ohko"
+        ],
+        [
+            "Arbiters_Grounds_Small_Key, 1",
+            "state.has(\"Arbiter's Grounds Small Key\", player, 1)"
+        ],
+        [
+            "Progressive_Wallet, 1",
+            "state.has(\"Progressive Wallet\", player, 1)"
+        ],
+        [
+            "CanDefeatDodongo",
+            "can_defeat_Dodongo(state, player)"
+        ],
+        [
+            "canBreakWoodenDoor",
+            "can_break_wooden_door(state, player)"
+        ],
+        [
+            "Progressive_Sword, 1",
+            "state.has(\"Progressive Master Sword\", player, 1)"
+        ],
+        [
+            "Setting.totEntrance equals Open",
+            "state._tp_tot_entrance(player) == TotEntrance.option_open"
+        ],
+        [
+            "CanDefeatIceKeese",
+            "can_defeat_IceKeese(state, player)"
+        ],
+        [
+            "Room.North_Faron_Lost_Woods_Entrance",
+            "state.can_reach_region(\"North Faron Lost Woods Entrance\", player)"
+        ],
+        [
+            "Male_Ladybug",
+            "state.has(\"Male Ladybug\", player)"
+        ],
+        [
+            "CanDefeatDarkhammer",
+            "can_defeat_Darkhammer(state, player)"
+        ],
+        [
+            "Female_Snail",
+            "state.has(\"Female Snail\", player)"
+        ],
+        [
+            "Room.Kakariko_Top_of_Watchtower",
+            "state.can_reach_region(\"Kakariko Top of Watchtower\", player)"
+        ],
+        [
+            "CanDefeatGhoulRat",
+            "can_defeat_GhoulRat(state, player)"
+        ],
+        [
+            "Room.Ordon_Village",
+            "state.can_reach_region(\"Ordon Village\", player)"
+        ],
+        [
+            "Female_Grasshopper",
+            "state.has(\"Female Grasshopper\", player)"
+        ],
+        [
+            "Setting.bonksDoDamage equals True",
+            "state._tp_bonks_do_damage(player)"
+        ],
+        [
+            "Asheis_Sketch",
+            "state.has(\"Ashei's Sketch\", player)"
+        ],
+        [
+            "CanDefeatBokoblin",
+            "can_defeat_Bokoblin(state, player)"
+        ],
+        [
+            "Progressive_Fishing_Rod, 1",
+            "state.has(\"Progressive Fishing Rod\", player, 1)"
+        ],
+        [
+            "CanDefeatStallord",
+            "can_defeat_Stallord(state, player)"
+        ],
+        [
+            "canCompletePrologue",
+            "can_complete_prologue(state, player)"
+        ],
+        [
+            "Progressive_Dominion_Rod, 1",
+            "state.has(\"Progressive Dominion Rod\", player, 1)"
+        ],
+        [
+            "CanDefeatDeathSword",
+            "can_defeat_DeathSword(state, player)"
+        ],
+        [
+            "CanDefeatPoe",
+            "can_defeat_Poe(state, player)"
+        ],
+        [
+            "CanDefeatSkulltula",
+            "can_defeat_Skulltula(state, player)"
+        ],
+        [
+            "Boomerang",
+            "state.has(\"Gale Boomerang\", player)"
+        ],
+        [
+            "CanDefeatBlizzeta",
+            "can_defeat_Blizzeta(state, player)"
+        ],
+        [
+            "Female_Dragonfly",
+            "state.has(\"Female Dragonfly\", player)"
+        ],
+        [
+            "CanDefeatBabyGohma",
+            "can_defeat_BabyGohma(state, player)"
+        ],
+        [
+            "CanDefeatGanondorf",
+            "can_defeat_Ganondorf(state, player)"
+        ],
+        [
+            "Room.Lake_Hylia",
+            "state.can_reach_region(\"Lake Hylia\", player)"
+        ],
+        [
+            "CanCompleteGoats1",
+            "can_complete_goats1(state, player)"
+        ],
+        [
+            "canPressMinesSwitch",
+            "can_press_mines_switch(state, player)"
+        ],
+        [
+            "CanDefeatStalchild",
+            "can_defeat_Stalchild(state, player)"
+        ],
+        [
+            "CanCompleteMDH",
+            "can_complete_MDH(state, player)"
+        ],
+        [
+            "Male_Snail",
+            "state.has(\"Male Snail\", player)"
+        ],
+        [
+            "CanDefeatKeese",
+            "can_defeat_Keese(state, player)"
+        ],
+        [
+            "Room.Castle_Town_South",
+            "state.can_reach_region(\"Castle Town South\", player)"
+        ],
+        [
+            "Progressive_Clawshot,1",
+            "state.has(\"Progressive Clawshot\", player, 1)"
+        ],
+        [
+            "CanDefeatBeamos",
+            "can_defeat_Beamos(state, player)"
+        ],
+        [
+            "canKnockDownHangingBaba",
+            "can_knock_down_HangingBaba(state, player)"
+        ],
+        [
+            "Male_Grasshopper",
+            "state.has(\"Male Grasshopper\", player)"
+        ],
+        [
+            "CanDefeatStalfos",
+            "can_defeat_Stalfos(state, player)"
+        ],
+        [
+            "HasSword",
+            "has_sword(state, player)"
+        ],
+        [
+            "CanDefeatRedeadKnight",
+            "can_defeat_RedeadKnight(state, player)"
+        ],
+        [
+            "Gate_Keys",
+            "state.has(ItemList.GateKeys, player)"
+        ],
+        [
+            "canClearForest",
+            "can_clear_forest(state, player)"
+        ],
+        [
+            "Female_Beetle",
+            "state.has(\"Female Beetle\", player)"
+        ],
+        [
+            "CanDefeatArmogohma",
+            "can_defeat_Armogohma(state, player)"
+        ],
+        [
+            "CanDefeatYoungGohma",
+            "can_defeat_YoungGohma(state, player)"
+        ],
+        [
+            "CanDefeatSkullKid",
+            "can_defeat_SkullKid(state, player)"
+        ],
+        [
+            "Female_Ladybug",
+            "state.has(\"Female Ladybug\", player)"
+        ],
+        [
+            "Female_Mantis",
+            "state.has(\"Female Mantis\", player)"
+        ],
+        [
+            "CanDefeatKargarok",
+            "can_defeat_Kargarok(state, player)"
+        ],
+        [
+            "Iron_Boots",
+            "state.has(\"Iron Boots\", player)"
+        ],
+        [
+            "canCutHangingWeb",
+            "can_cut_hanging_web(state, player)"
+        ],
+        [
+            "Male_Pill_Bug",
+            "state.has(\"Male Pill Bug\", player)"
+        ],
+        [
+            "CanDefeatRat",
+            "can_defeat_Rat(state, player)"
+        ],
+        [
+            "Gerudo_Desert_Bulblin_Camp_Key",
+            "state.has(\"Gerudo Desert Bublin Camp Key\", player)"
+        ],
+        [
+            "Setting.increaseWallet equals True",
+            "state._tp_increase_wallet(player)"
+        ],
+        [
+            "Forest_Temple_Small_Key, 1",
+            "state.has(\"Forest Temple Small Key\", player, 1)"
+        ],
+        [
+            "CanDefeatPhantomZant",
+            "can_defeat_PhantomZant(state, player)"
+        ],
+        [
+            "CanDefeatChuWorm",
+            "can_defeat_ChuWorm(state, player)"
+        ],
+        [
+            "CanDefeatDarknut",
+            "can_defeat_Darknut(state, player)"
+        ],
+        [
+            "Male_Ant",
+            "state.has(\"Male Ant\", player)"
+        ],
+        [
+            "CanDefeatBabaSerpent",
+            "can_defeat_BabaSerpent(state, player)"
+        ],
+        [
+            "CanDefeatTileWorm",
+            "can_defeat_TileWorm(state, player)"
+        ],
+        [
+            "Slingshot",
+            "state.has(\"Slingshot\", player)"
+        ],
+        [
+            "Lakebed_Temple_Small_Key, 1",
+            "state.has(\"Lakebed Temple Small Key\", player, 1)"
+        ],
+        [
+            "CanDefeatZantHead",
+            "can_defeat_ZantHead(state, player)"
+        ],
+        [
+            "Female_Stag_Beetle",
+            "state.has(\"Female Stag Beetle\", player)"
+        ],
+        [
+            "canSmash",
+            "can_smash(state, player)"
+        ],
+        [
+            "Setting.lanayruTwilightCleared equals True",
+            "state._tp_lanayru_twilight_cleared(player)"
+        ],
+        [
+            "CanDefeatAeralfos",
+            "can_defeat_Aeralfos(state, player)"
+        ],
+        [
+            "Setting.faronTwilightCleared equals True",
+            "state._tp_faron_twilight_cleared(player)"
+        ],
+        [
+            "CanCompleteFaronTwilight",
+            "can_complete_faron_twilight(state, player)"
+        ],
+        [
+            "CanDefeatZant",
+            "can_defeat_Zant(state, player)"
+        ],
+        [
+            "Room.Hidden_Village",
+            "state.can_reach_region(\"Hidden Village\", player)"
+        ],
+        [
+            "CanDefeatDinalfos",
+            "can_defeat_Dinalfos(state, player)"
+        ],
+        [
+            "Room.Snowpeak_Climb_Upper",
+            "state.can_reach_region(\"Snowpeak Climb Upper\", player)"
+        ],
+        [
+            "Spinner",
+            "state.has(\"Spinner\", player)"
+        ],
+        [
+            "canCompleteGoronMines",
+            "can_complete_goron_mines(state, player)"
+        ],
+        [
+            "Female_Pill_Bug",
+            "state.has(\"Female Pill Bug\", player)"
+        ],
+        [
+            "CanDefeatBigBaba",
+            "can_defeat_BigBaba(state, player)"
+        ],
+        [
+            "CanDefeatStalhound",
+            "can_defeat_Stalhound(state, player)"
+        ],
+        [
+            "Progressive_Clawshot, 1",
+            "state.has(\"Progressive Clawshot\", player, 1)"
+        ],
+        [
+            "City_in_The_Sky_Big_Key",
+            "state.has(\"City in the Sky Big Key\", player)"
+        ],
+        [
+            "CanDefeatBokoblinRed",
+            "can_defeat_Bokoblin_Red(state, player)"
+        ],
+        [
+            "Lakebed_Temple_Big_Key",
+            "state.has(\"Lakebed Temple Big Key\", player)"
+        ],
+        [
+            "Temple_of_Time_Small_Key, 1",
+            "state.has(\"Temple of Time Small Key\", player, 1)"
+        ],
+        [
+            "Arbiters_Grounds_Big_Key",
+            "state.has(\"Arbiter's Grounds Big Key\", player)"
+        ],
+        [
+            "City_in_The_Sky_Small_Key, 1",
+            "state.has(\"City in the Sky Small Key\", player, 1)"
+        ],
+        [
+            "Setting.bigKeySettings equals Keysy",
+            "state._tp_big_key_settings(player) == BigKeySettings.option_keysy"
+        ],
+        [
+            "CanDefeatMiniFreezard",
+            "can_defeat_MiniFreezard(state, player)"
+        ],
+        [
+            "Snowpeak_Ruins_Ordon_Pumpkin",
+            "state.has(\"Ordon Pumpkin\", player)"
+        ],
+        [
+            "Temple_of_Time_Big_Key",
+            "state.has(\"Temple of Time Big Key\", player)"
+        ],
+        [
+            "canBreakMonkeyCage",
+            "can_break_monkey_cage(state, player)"
+        ],
+        [
+            "Hyrule_Castle_Small_Key, 1",
+            "state.has(\"Hyrule Castle Small Key\", player, 1)"
+        ],
+        [
+            "canFreeAllMonkeys",
+            "can_free_all_monkeys(state, player)"
+        ],
+        [
+            "Goron_Mines_Key_Shard, 1",
+            "state.has(\"Goron Mines Key Shard\", player, 1)"
+        ],
+        [
+            "Setting.openDot equals True",
+            "state._tp_tot_entrance(player)"
+        ],
+        [
+            "Hyrule_Castle_Big_Key",
+            "state.has(\"Hyrule Castle Big Key\", player)"
+        ],
+        [
+            "Setting.smallKeySettings equals Keysy",
+            "state._tp_small_key_settings(player) == SmallKeySettings.option_keysy"
+        ],
+        [
+            "Arbiters_Grounds_Small_Key,1",
+            "state.has(\"Arbiter's Grounds Small Key\", player, 1)"
+        ],
+        [
+            "Forest_Temple_Big_Key",
+            "state.has(\"Forest Temple Big Key\", player)"
+        ],
+        [
+            "Snowpeak_Ruins_Bedroom_Key",
+            "state.has(\"Bedroom Key\", player)"
+        ],
+        [
+            "Palace_of_Twilight_Big_Key",
+            "state.has(\"Palace of Twilight Big Key\", player)"
+        ],
+        [
+            "Room.City_in_The_Sky_Central_Tower_Second_Floor",
+            "state.can_reach_region(\"City in The Sky Central Tower Second Floor\", player)"
+        ],
+        [
+            "false",
+            "false"
+        ],
+        [
+            "Room.North_Faron_Woods",
+            "state.can_reach_region(\"North Faron Woods\", player)"
+        ],
+        [
+            "CanUseBottledFairy",
+            "can_use_bottled_fairy(state, player)"
+        ],
+        [
+            "Room.Death_Mountain_Sumo_Hall",
+            "state.can_reach_region(\"Death Mountain Sumo Hall\", player)"
+        ],
+        [
+            "Room.Outside_Castle_Town_South",
+            "state.can_reach_region(\"Outside Castle Town South\", player)"
+        ],
+        [
+            "CanDefeatFireKeese",
+            "can_defeat_FireKeese(state, player)"
+        ],
+        [
+            "Setting.skipCityEntrance equals True",
+            "state._tp_skip_city_in_the_sky_entrance(player)"
+        ],
+        [
+            "Setting.skipMinesEntrance equals True",
+            "state._tp_goron_mines_enterance(player) != GoronMinesEntrance.option_closed"
+        ],
+        [
+            "CanDefeatLeever",
+            "can_defeat_Leever(state, player)"
+        ],
+        [
+            "canCompleteCityinTheSky",
+            "can_complete_city_in_the_sky(state, player)"
+        ],
+        [
+            "Setting.skipMinesEntrance equals NoWrestling",
+            "state._tp_goron_mines_enterance(player) == GoronMinesEntrance.option_no_wrestling"
+        ],
+        [
+            "Setting.castleRequirements equals All_Dungeons",
+            "state._tp_castle_enertance(player) == CastleRequirements.option_all_dungeons"
+        ],
+        [
+            "North_Faron_Woods_Gate_Key",
+            "state.has(\"North Faron Woods Gate Keys\", player)"
+        ],
+        [
+            "Room.Outside_Links_House",
+            "state.can_reach_region(\"Outside Links House\", player)"
+        ],
+        [
+            "Setting.castleRequirements equals Mirror_Shards",
+            "state._tp_castle_enertance(player) == CastleRequirements.option_mirror_shards"
+        ],
+        [
+            "CanDefeatTorchSlug",
+            "can_defeat_TorchSlug(state, player)"
+        ],
+        [
+            "canCompleteAllDungeons",
+            "can_complete_all_dungeons(state, player)"
+        ],
+        [
+            "Setting.castleRequirements equals Open",
+            "state._tp_castle_enertance(player) == CastleRequirements.option_open"
+        ],
+        [
+            "Aurus_Memo",
+            "state.has(\"Aurus's Memo\", player)"
+        ],
+        [
+            "Room.South_Faron_Woods",
+            "state.can_reach_region(\"South Faron Woods\", player)"
+        ],
+        [
+            "Room.Zoras_Domain",
+            "state.can_reach_region(\"Zoras Domain\", player)"
+        ],
+        [
+            "Room.Sacred_Grove_Lower",
+            "state.can_reach_region(\"Sacred Grove Lower\", player)"
+        ],
+        [
+            "Setting.palaceRequirements equals Vanilla",
+            "state._tp_palace_requirements(player) == PalaceRequirements.option_vanilla"
+        ],
+        [
+            "canGetHotSpringWater",
+            "can_get_hot_spring_water(state, player)"
+        ],
+        [
+            "Setting.skipPrologue equals True",
+            "state._tp_skip_prologue(player)"
+        ],
+        [
+            "CanDefeatGoron",
+            "can_defeat_Goron(state, player)"
+        ],
+        [
+            "Setting.palaceRequirements equals Mirror_Shards",
+            "state._tp_palace_requirements(player) == PalaceRequirements.option_mirror_shards"
+        ],
+        [
+            "Setting.palaceRequirements equals Open",
+            "state._tp_palace_requirements(player) == PalaceRequirements.option_open"
+        ],
+        [
+            "Room.Sacred_Grove_Before_Block",
+            "state.can_reach_region(\"Sacred Grove Before Block\", player)"
+        ],
+        [
+            "Room.Gerudo_Desert_Basin",
+            "state.can_reach_region(\"Gerudo Desert Basin\", player)"
+        ],
+        [
+            "Invoice",
+            "state.has(\"Invoice\", player)"
+        ],
+        [
+            "Wooden_Statue",
+            "state.has(\"Wooden Statue\", player)"
+        ],
+        [
+            "Room.Death_Mountain_Elevator_Lower",
+            "state.can_reach_region(\"Death Mountain Elevator Lower\", player)"
+        ],
+        [
+            "Setting.castleRequirements equals Vanilla",
+            "state._tp_castle_enertance(player) == CastleRequirements.option_vanilla"
+        ],
+        [
+            "Setting.skipLakebedEntrance equals True",
+            "state._tp_skip_lakebed_entrance(player)"
+        ],
+        [
+            "Setting.palaceRequirements equals Fused_Shadows",
+            "state._tp_palace_requirements(player) == PalaceRequirements.option_fused_shadows"
+        ],
+        [
+            "Progressive_Fused_Shadow, 1",
+            "state.has(\"Progressive Fused Shadow\", player, 1)"
+        ],
+        [
+            "CanDefeatKingBulblinDesert",
+            "can_defeat_KingBulblinDesert(state, player)"
+        ],
+        [
+            "Setting.castleRequirements equals Fused_Shadows",
+            "state._tp_castle_requirements(player) == CastleRequirements.option_fused_shadows"
+        ],
+        [
+            "Setting.skipSnowpeakEntrance equals True",
+            "state._tp_skip_snowpeak_entrance(player)"
+        ],
+        [
+            "Progressive_Mirror_Shard, 1",
+            "state.has(\"Progressive Mirror Shard\", player, 1)"
+        ],
+        [
+            "Room.Eldin_Field_Near_Castle_Town",
+            "state.can_reach_region(\"Eldin Field Near Castle Town\", player)"
+        ],
+        [
+            "canCompletePalaceofTwilight",
+            "can_complete_palace_of_twilight(state, player)"
+        ],
+        [
+            "Progressive_Sky_Book, 1",
+            "state.has(\"Progressive Sky Book\", player, 1)"
+        ],
+        [
+            "Setting.goronMinesEntrance equals Open",
+            "state._tp_goron_mines_enterance(player) == GoronMinesEntrance.option_open"
+        ]
+    ],
+    "glitched requirements": [
+        [
+            "CanDoLJA",
+            "can_do_lja(state, player)"
+        ],
+        [
+            "Setting.damageMagnification equals Double",
+            "state._tp_damage_magnification(player) == DamageMagnification.option_double"
+        ],
+        [
+            "CanDoBSMoonBoots",
+            "can_do_bs_moon_boots(state, player)"
+        ],
+        [
+            "HasBottle",
+            "has_bottle(state, player)"
+        ],
+        [
+            "CanDoMapGlitch",
+            "can_do_map_glitch(state, player)"
+        ],
+        [
+            "CanUseBottledFairy",
+            "can_use_bottled_fairy(state, player)"
+        ],
+        [
+            "Progressive_Hidden_Skill, 1",
+            "state.has(\"Progressive Hidden Skill\", player, 1)"
+        ],
+        [
+            "Room.Goron_Mines_Upper_East_Wing",
+            "state.can_reach_region(\"Goron Mines Upper East Wing\", player)"
+        ],
+        [
+            "CanDoHSMoonBoots",
+            "can_do_hs_moon_boots(state, player)"
+        ],
+        [
+            "CanDoJSMoonBoots",
+            "can_do_js_moon_boots(state, player)"
+        ],
+        [
+            "Room.Lakebed_Temple_West_Wing",
+            "state.can_reach_region(\"Lakebed Temple West Wing\", player)"
+        ],
+        [
+            "Progressive_Clawshot",
+            "state.has(\"Progressive Clawshot\", player)"
+        ],
+        [
+            "CanDefeatBombling",
+            "can_defeat_Bombling(state, player)"
+        ],
+        [
+            "Room.Forest_Temple_West_Wing",
+            "state.can_reach_region(\"Forest Temple West Wing\", player)"
+        ],
+        [
+            "Setting.damageMagnification equals Vanilla",
+            "state._tp_damage_magnification(player) == DamageMagnification.option_vanilla"
+        ],
+        [
+            "CanDoAirRefill",
+            "can_do_air_refill(state, player)"
+        ],
+        [
+            "CanDoMoonBoots",
+            "can_do_moon_boots(state, player)"
+        ],
+        [
+            "Room.Lakebed_Temple_East_Wing_Second_Floor",
+            "state.can_reach_region(\"Lakebed Temple East Wing Second Floor\", player)"
+        ],
+        [
+            "CanDoEBMoonBoots",
+            "can_do_eb_moon_boots(state, player)"
+        ],
+        [
+            "CanSkipKeyToDekuToad",
+            "can_skip_key_to_deku_toad(state, player)"
+        ],
+        [
+            "Room.Zoras_Domain",
+            "state.can_reach_region(\"Zoras Domain\", player)"
+        ],
+        [
+            "CanDoStorage",
+            "can_do_storage(state, player)"
+        ],
+        [
+            "CanDoHiddenVillageGlitched",
+            "can_do_hidden_village_glitched(state, player)"
+        ],
+        [
+            "HasHeavyMod",
+            "has_heavy_mod(state, player)"
+        ],
+        [
+            "CanDefeatBeamos",
+            "can_defeat_Beamos(state, player)"
+        ],
+        [
+            "CanDoJSLJA",
+            "can_do_js_lja(state, player)"
+        ],
+        [
+            "CanDefeatBigBaba",
+            "can_defeat_BigBaba(state, player)"
+        ]
+    ]
+}

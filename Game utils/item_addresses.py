@@ -27,6 +27,7 @@ class ItemAddresses(Enum):
     ARROWS_20 = 0x0F
     ARROWS_30 = 0x10
     SEEDS_50 = 0x12
+    ICE_TRAP = 0x13
     WATER_BOMBS_5 = 0x16
     WATER_BOMBS_10 = 0x17
     WATER_BOMBS_15 = 0x18
@@ -57,6 +58,7 @@ class ItemAddresses(Enum):
     GIANT_BOMB_BAG = 0x4F
     EMPTY_BOMB_BAG = 0x50
     GORON_BOMB_BAG = 0x51
+    EMPTY_BOTTLE = 0X60
     MILK_HALF = 0x65
     GREAT_FAIRY_TEARS = 0x75
     RENADOS_LETTER = 0x80

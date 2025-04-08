@@ -2,38 +2,44 @@ import os
 import json
 from queue import Queue
 from enum import Enum
-from dolphin_memory_engine import read_byte, write_byte, hook, is_hooked
+from dolphin_memory_engine import read_byte, write_byte, hook, is_hooked  # type: ignore
 from item_addresses import ItemAddresses
-from read_check_address import read_checks, get_check_address, read_check_byte, get_bit_value
+from read_check_address import (
+    read_checks,
+    get_check_address,
+    read_check_byte,
+    get_bit_value,
+)
+
 
 class RegionIDs(Enum):
-    ORDON_VILLAGE = (0x0, 0X804063B0)
-    SEWERS = (0x1, 0X804063D0)
-    FARON = (0x2, 0X80406F0)
-    KAKARIKO = (0x3, 0X80406410)
-    ZORA_DOMAIN = (0x4, 0X80406430)
-    HYRULE_FIELD = (0x6, 0X80406470)
-    SACRED_GROVE = (0x7, 0X80406490)
-    SNOWPEAK = (0x8, 0X804064B0)
-    CASTLE_TOWN = (0x9, 0X804064D0)
-    GERUDO_DESERT = (0xA, 0X804064F0)
-    FISHING_HOLE = (0xB, 0X80406510)
-    FOREST_TEMPLE = (0x10, 0X804065B0)
-    GORON_MINES = (0x11, 0X804065D0)
-    LAKEBED_TEMPLE = (0x12, 0X804065F0)
-    ARBITERS_GROUNDS = (0x13, 0X80406610)
-    SNOWPEAK_RUINS = (0x14, 0X80406630)
-    TEMPLE_OF_TIME = (0x15, 0X80406650)
-    CITY_IN_THE_SKY = (0x16, 0X80406670)
-    PALACE_OF_TWILIGHT = (0x17, 0X80406690)
-    HYRULE_CASTLE = (0x18, 0X804066B0)
-    CAVES = (0x19, 0X804066D0)
-    HYPE_CAVE = (0x1A, 0X804066F0)
-    GROTTOS = (0x1B, 0X80406710)
+    ORDON_VILLAGE = (0x0, 0x804063B0)
+    SEWERS = (0x1, 0x804063D0)
+    FARON = (0x2, 0x80406F0)
+    KAKARIKO = (0x3, 0x80406410)
+    ZORA_DOMAIN = (0x4, 0x80406430)
+    HYRULE_FIELD = (0x6, 0x80406470)
+    SACRED_GROVE = (0x7, 0x80406490)
+    SNOWPEAK = (0x8, 0x804064B0)
+    CASTLE_TOWN = (0x9, 0x804064D0)
+    GERUDO_DESERT = (0xA, 0x804064F0)
+    FISHING_HOLE = (0xB, 0x80406510)
+    FOREST_TEMPLE = (0x10, 0x804065B0)
+    GORON_MINES = (0x11, 0x804065D0)
+    LAKEBED_TEMPLE = (0x12, 0x804065F0)
+    ARBITERS_GROUNDS = (0x13, 0x80406610)
+    SNOWPEAK_RUINS = (0x14, 0x80406630)
+    TEMPLE_OF_TIME = (0x15, 0x80406650)
+    CITY_IN_THE_SKY = (0x16, 0x80406670)
+    PALACE_OF_TWILIGHT = (0x17, 0x80406690)
+    HYRULE_CASTLE = (0x18, 0x804066B0)
+    CAVES = (0x19, 0x804066D0)
+    HYPE_CAVE = (0x1A, 0x804066F0)
+    GROTTOS = (0x1B, 0x80406710)
 
 
 class GameUtils:
-    def __init__(self, use_json=False, check_file_name='TPGC US Check Flags.csv'):
+    def __init__(self, use_json=False, check_file_name="TPGC US Check Flags.csv"):
         self.use_json = use_json
         self.check_file_name = check_file_name
         self.write_queue = Queue()
@@ -49,17 +55,23 @@ class GameUtils:
         checks = read_checks(file_path)
         address, flag = get_check_address(checks, check_name)
         if address == "Invalid" or address is None:
-            raise ValueError(f"Check '{check_name}' is not valid or is incorrectly formatted.")
+            raise ValueError(
+                f"Check '{check_name}' is not valid or is incorrectly formatted."
+            )
         byte_value = read_check_byte(address)
         return get_bit_value(byte_value, flag)
 
     def give_item(self, item_name):
         if self.use_json:
-            with open(os.path.join(os.path.dirname(__file__), 'item_addresses.json'), 'r') as f:
+            with open(
+                os.path.join(os.path.dirname(__file__), "item_addresses.json"), "r"
+            ) as f:
                 data = json.load(f)
-            item = next((item for item in data['items'] if item['Name'] == item_name), None)
+            item = next(
+                (item for item in data["items"] if item["Name"] == item_name), None
+            )
             if item:
-                self.write_queue.put(int(item['Hex-Code'], 16))
+                self.write_queue.put(int(item["Hex-Code"], 16))
             else:
                 print(f"Item '{item_name}' not found in address list.")
         else:
@@ -97,7 +109,13 @@ class GameUtils:
         file_path = os.path.join(os.path.dirname(__file__), self.check_file_name)
         checks = read_checks(file_path)
         checks_in_region = {}
-        for check_name, (address, flag, is_region_flag, save_file_region, note) in checks.items():
+        for check_name, (
+            address,
+            flag,
+            is_region_flag,
+            save_file_region,
+            note,
+        ) in checks.items():
             if save_file_region == current_region_id:
                 region_offset_address = self.region_start_address + int(address, 16)
                 if region_offset_address == "Invalid" or region_offset_address is None:
@@ -111,20 +129,33 @@ class GameUtils:
         if not is_hooked():
             hook()
         current_region_byte = read_byte(self.region_get_address)
-        current_region_name = next((region.name for region in RegionIDs if region.value[0] == current_region_byte), "Unknown Region")
+        current_region_name = next(
+            (
+                region.name
+                for region in RegionIDs
+                if region.value[0] == current_region_byte
+            ),
+            "Unknown Region",
+        )
         return current_region_name
-    
+
     def get_region_id(self):
         if not is_hooked():
             hook()
         current_region_byte = read_byte(self.region_get_address)
         current_region_id = hex(current_region_byte)
         return current_region_id
-    
+
     def get_region_address(self):
         if not is_hooked():
             hook()
         current_region_byte = read_byte(self.region_get_address)
-        current_region_address = next((region.value[1] for region in RegionIDs if region.value[0] == current_region_byte), "Unknown Region")
+        current_region_address = next(
+            (
+                region.value[1]
+                for region in RegionIDs
+                if region.value[0] == current_region_byte
+            ),
+            "Unknown Region",
+        )
         return hex(current_region_address)
-
